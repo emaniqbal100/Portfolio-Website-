@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kanza Iqbal — UI/UX Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style 2.css">
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════════════════════════════════════ -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a class="nav-logo" onclick="scrollTo('home')">
+      <div class="logo-icon">KI</div>
+      <span class="logo-text">K.<span>Iqbal</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><button class="active" data-section="home"     onclick="scrollTo('home')">Home</button></li>
+      <li><button data-section="about"    onclick="scrollTo('about')">About</button></li>
+      <li><button data-section="work"     onclick="scrollTo('work')">Work</button></li>
+      <li><button data-section="services" onclick="scrollTo('services')">Services</button></li>
+      <li><button data-section="contact"  onclick="scrollTo('contact')">Contact</button></li>
+    </ul>
+    <div class="nav-cta-wrap">
+      <button class="nav-cta" onclick="scrollTo('contact')">Hire Me</button>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <svg id="ham-icon"   width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg id="close-icon" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="hidden"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><button data-section="home"     onclick="scrollTo('home');closeMobile()">Home</button></li>
+    <li><button data-section="about"    onclick="scrollTo('about');closeMobile()">About</button></li>
+    <li><button data-section="work"     onclick="scrollTo('work');closeMobile()">Work</button></li>
+    <li><button data-section="services" onclick="scrollTo('services');closeMobile()">Services</button></li>
+    <li><button data-section="contact"  onclick="scrollTo('contact');closeMobile()">Contact</button></li>
+    <li><button class="mob-cta"         onclick="scrollTo('contact');closeMobile()">Hire Me</button></li>
+  </ul>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════════════════════════════ -->
+<section id="home">
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-orb hero-orb-3"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-particles" id="particles"></div>
+
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-badge">
+        <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+        <span>Available for Freelance Work</span>
+        <span class="badge-dot"></span>
+      </div>
+      <div class="hero-heading">
+        <span class="block">Crafting</span>
+        <span class="block">Digital <span class="hero-gradient-text">Experiences</span></span>
+        <span class="block">That Matter</span>
+      </div>
+      <div class="hero-typewriter">
+        <div class="hero-line"></div>
+        <span class="typewriter-text" id="typewriter"><span class="cursor">|</span></span>
+      </div>
+      <p class="hero-desc">
+        Hi, I'm <strong>Kanza Iqbal</strong> — UI/UX Designer specializing in pixel-perfect mobile apps and web interfaces.
+        I turn complex problems into elegant, user-centered solutions using Figma, AI tools, and deep design intuition.
+      </p>
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="scrollTo('work')">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 15l5-5 4 4 5-6 4 3"/></svg>
+          View My Work
+        </button>
+        <button class="btn-secondary" onclick="scrollTo('contact')">Get in Touch</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item"><div class="stat-value">20+</div><div class="stat-label">Projects Done</div></div>
+        <div class="stat-item"><div class="stat-value">1.5</div><div class="stat-label">Years Exp.</div></div>
+        <div class="stat-item"><div class="stat-value">100%</div><div class="stat-label">Client Satisfaction</div></div>
+      </div>
+    </div>
+
+    <!-- Avatar + 4 floating badges -->
+    <div class="hero-avatar-wrap">
+      <div class="hero-glow"></div>
+      <div class="ring-outer"></div>
+      <div class="ring-inner"></div>
+      <div class="avatar-circle">
+        <img src="image/Profile Picture.png" alt="Kanza Iqbal"
+             onerror="this.src='https://images.unsplash.com/photo-1772987273687-4866382c146f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600'" />
+        <div class="avatar-vignette"></div>
+      </div>
+      <!-- Adobe XD top-left -->
+      <div class="hero-badge-float hbf-tl">
+        <div class="hbf-icon" style="background:linear-gradient(135deg,#470137,#FF61F6);">
+            <img src="/image/Adobe illustrator.png" alt="">
+          <!-- <svg width="18" height="18" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="#FF61F6"/><text x="3" y="23" font-size="14" font-weight="900" fill="white" font-family="Arial">XD</text></svg> -->
+        </div>
+        <div><div class="hbf-label">Adobe Illustrator</div><div class="hbf-sub">Design Tool</div></div>
+      </div>
+      <!-- Figma Pro top-right -->
+      <div class="hero-badge-float hbf-tr">
+        <div class="hbf-icon" style="background:linear-gradient(135deg,#6B21A8,#A855F7);">
+          <img src="image/Figma icon.png" alt="">
+          <!-- <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"/><path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z"/><path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z"/><path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z"/><path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z"/></svg> -->
+        </div>
+        <div><div class="hbf-label">Figma</div><div class="hbf-sub">Expert Level</div></div>
+      </div>
+      <!-- Fiverr bottom-left -->
+      <div class="hero-badge-float hbf-bl">
+        <div class="hbf-icon" style="background:linear-gradient(135deg,#0a7a4a,#1DBF73);">
+          <img src="image/Canva.png" alt="">
+          <!-- <svg width="18" height="18" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="#1DBF73"/><text x="5" y="23" font-size="18" font-weight="900" fill="white" font-family="Arial">f</text></svg> -->
+        </div>
+        <div><div class="hbf-label">Canva</div><div class="hbf-sub">Top Rated</div></div>
+      </div>
+      <!-- Photoshop bottom-right -->
+      <div class="hero-badge-float hbf-br">
+        <div class="hbf-icon" style="background:linear-gradient(135deg,#001E36,#31A8FF);">
+          <img src="image/Adobe Photoshop.png" alt="">
+          <!-- <svg width="18" height="18" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="#31A8FF"/><text x="3" y="23" font-size="13" font-weight="900" fill="white" font-family="Arial">Ps</text></svg> -->
+        </div>
+        <div><div class="hbf-label">Photoshop</div><div class="hbf-sub">Image Editing</div></div>
+      </div>
+    </div>
+  </div>
+
+  <button class="scroll-indicator" onclick="scrollTo('about')">
+    <span>Scroll</span>
+    <svg class="scroll-arrow" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+  </button>
+</section>
+
+<!-- TICKER 1 -->
+<div class="ticker-wrap">
+  <div class="ticker-inner">
+    <span class="ticker-item">Figma Expert</span><span class="ticker-item">Pixel Perfect</span><span class="ticker-item">User Research</span><span class="ticker-item">Prototyping</span><span class="ticker-item">Brand Identity</span><span class="ticker-item">AI-Powered Design</span><span class="ticker-item">UI/UX Design</span><span class="ticker-item">Mobile App Design</span><span class="ticker-item">Web Design</span><span class="ticker-item">Figma Expert</span><span class="ticker-item">Pixel Perfect</span><span class="ticker-item">User Research</span><span class="ticker-item">Prototyping</span><span class="ticker-item">Brand Identity</span><span class="ticker-item">AI-Powered Design</span><span class="ticker-item">UI/UX Design</span><span class="ticker-item">Mobile App Design</span><span class="ticker-item">Web Design</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     ABOUT SECTION
+     Layout: LEFT = Toolkit (top) + Photo (bottom)
+              RIGHT = Bio + Experience Cards
+══════════════════════════════════════════════════════════════════════ -->
+<section id="about">
+  <div class="about-inner">
+
+    <!-- Full-width heading -->
+    <div class="about-heading-block reveal">
+      <div class="section-label">
+        <div class="section-line"></div>
+        <span class="section-tag">About Me</span>
+      </div>
+      <h2 class="section-h2">
+        Designing with <span class="grad-purple">Purpose</span>,<br>
+        Building with <span class="grad-orange">Passion</span>
+      </h2>
+    </div>
+
+    <!-- Two-column grid -->
+    <div class="about-grid">
+
+      <!-- ── LEFT COLUMN: Toolkit on top, Photo below ── -->
+      <div class="about-left-col reveal-left">
+
+        <!-- Design Toolkit card (sits ABOVE photo) -->
+        <div class="toolkit-box">
+          <div class="toolkit-title">Design Toolkit</div>
+          <div class="toolkit-grid">
+            <div class="tool-card">
+              <div class="tool-icon">
+                <img src="image/Canva.png" alt="Figma"
+                     onerror="this.outerHTML='<span style=font-size:22px>🎨</span>'" />
+              </div>
+              <div>
+                <div class="tool-name">Canva</div>
+                <div class="tool-desc">Primary design tool</div>
+              </div>
+            </div>
+            <div class="tool-card">
+              <div class="tool-icon">
+                <img src="image/Figma icon.png" alt="Figma"
+                     onerror="this.outerHTML='<span style=font-size:22px>🎨</span>'" />
+              </div>
+              <div>
+                <div class="tool-name">Figma</div>
+                <div class="tool-desc">Primary design tool</div>
+              </div>
+            </div>
+            <div class="tool-card">
+              <div class="tool-icon">
+                <img src="image/Chatgpt Icon.png" alt="ChatGPT"
+                onerror="this.outerHTML='<span style=font-size:22px>🤖</span>'" />
+              </div>
+              <div>
+                <div class="tool-name">ChatGPT</div>
+                <div class="tool-desc">AI-powered ideation</div>
+              </div>
+            </div>
+            <div class="tool-card">
+              <div class="tool-icon">
+                <img src="image/Gemini icon.png" alt="Gemini"
+                onerror="this.outerHTML='<span style=font-size:22px>✨</span>'" />
+              </div>
+              <div>
+                <div class="tool-name">Gemini</div>
+                <div class="tool-desc">Research &amp; insights</div>
+              </div>
+            </div>
+            <div class="tool-card">
+              <div class="tool-icon">
+                <img src="image/Adobe illustrator.png" alt="Figma"
+                     onerror="this.outerHTML='<span style=font-size:22px>🎨</span>'" />
+              </div>
+              <div>
+                <div class="tool-name">Adobe Illustrator</div>
+                <div class="tool-desc">Primary design tool</div>
+              </div>
+            </div>
+            <div class="tool-card">
+                    <div class="tool-icon">
+                <img src="image/Adobe Photoshop.png" alt="Gemini"
+                     onerror="this.outerHTML='<span style=font-size:22px>✨</span>'" />
+                
+                </div>
+              <div>
+                <div class="tool-name">PhotoShop</div>
+                <div class="tool-desc">Visual assets</div>
+              </div>
+            </div>
+            <div class="tool-card">
+                    <div class="tool-icon">
+                <img src="image/Dribble.png" alt="Gemini"
+                     onerror="this.outerHTML='<span style=font-size:22px>✨</span>'" />
+                
+                </div>
+              <div>
+                <div class="tool-name">Dribble</div>
+                <div class="tool-desc">Visual assets</div>
+              </div>
+            </div>
+            <div class="tool-card">
+                    <div class="tool-icon">
+                <img src="image/Behance.png" alt="Gemini"
+                     onerror="this.outerHTML='<span style=font-size:22px>✨</span>'" />
+                
+                </div>
+              <div>
+                <div class="tool-name">Behance</div>
+                <div class="tool-desc">Visual assets</div>
+              </div>
+            </div>
+            <div class="tool-card">
+                    <div class="tool-icon">
+                <img src="image/Google stitch.png" alt="Gemini"
+                     onerror="this.outerHTML='<span style=font-size:22px>✨</span>'" />
+                
+                </div>
+              <div>
+                <div class="tool-name">Google Stitch</div>
+                <div class="tool-desc">Visual assets</div>
+              </div>
+            </div>
+            <div class="tool-card">
+                    <div class="tool-icon">
+                <img src="image/Mobbin.png" alt="Gemini"
+                     onerror="this.outerHTML='<span style=font-size:22px>✨</span>'" />
+                
+                </div>
+              <div>
+                <div class="tool-name">Mobbin</div>
+                <div class="tool-desc">Visual assets</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      
+      </div><!-- /left col -->
+
+      <!-- ── RIGHT COLUMN: Bio + Experience ── -->
+      <div class="about-right-col reveal-right">
+
+        <p class="about-bio">I'm <strong>Kanza Iqbal</strong> — a passionate <strong>UI/UX Designer</strong> with a keen eye for creating digital experiences that are both beautiful and functional. I specialize in transforming ideas into polished interfaces that users love.</p>
+        <p class="about-bio">With expertise in <span class="c-purple">mobile app design</span> and <span class="c-pink">web interfaces</span>, I bring a perfect blend of aesthetic sensibility and user-centered thinking to every project. Currently available for freelance projects on Fiverr.</p>
+
+        <!-- EXP CARD 1 — ALI Current -->
+        <div class="exp-card">
+          <div class="exp-card-head">
+            <div class="exp-icon" style="background:linear-gradient(135deg,#730FBF,#A855F7);">A</div>
+            <div>
+              <div class="exp-title-row">
+                <span class="exp-name">ALI</span>
+                <span class="exp-badge">Current</span>
+              </div>
+              <div class="exp-company">Design by Ali · Remote</div>
+              <div class="exp-period">Jan 2026 – Present</div>
+            </div>
+          </div>
+          <p class="exp-desc">Designing and shaping product experiences with a focus on user-centered interfaces, prototyping, and visual systems. Collaborated closely with cross-functional teams to deliver high-impact features.</p>
+        </div>
+
+        <!-- EXP CARD 2 — Assap Studio -->
+        <div class="exp-card exp-card-2">
+          <div class="exp-card-head">
+            <div class="exp-icon exp-icon-asapp" style="background:linear-gradient(135deg,#1e003a,#EC4899);font-size:11px;letter-spacing:-0.5px;">asapp</div>
+            <div>
+              <div class="exp-title-row">
+                <span class="exp-name">Assap Studio</span>
+                <span class="exp-badge exp-badge-pink">Professional</span>
+              </div>
+              <div class="exp-company" style="color:#EC4899;">Assap Studio · Onsite</div>
+              <div class="exp-period">2025 – 2026</div>
+            </div>
+          </div>
+          <p class="exp-desc">Worked as part of the design team at Assap Studio delivering end-to-end product designs, visual assets, and brand systems.</p>
+        </div>
+
+      </div><!-- /right col -->
+    </div><!-- /about-grid -->
+
+    <!-- Skills + Strengths (full-width below) -->
+    <div class="skills-section">
+      <div class="skills-card reveal">
+        <div class="skills-card-title">Core Skills</div>
+        <div id="skillsList"></div>
+      </div>
+      <div class="strengths-col reveal">
+        <div class="skills-card-title" style="margin-bottom:20px;">Professional Strengths</div>
+        <div id="strengthsList"></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     WORK / PORTFOLIO SECTION — Projects properly showcased
+══════════════════════════════════════════════════════════════════════ -->
+<section id="work">
+  <div class="work-inner">
+    <div class="work-header reveal">
+      <div>
+        <div class="section-label"><div class="section-line"></div><span class="section-tag">Portfolio</span></div>
+        <h2 class="section-h2">Selected <span class="grad-purple">Works</span></h2>
+      </div>
+      <p class="work-desc">A curated selection of my best work across mobile apps, web interfaces, and digital experiences.</p>
+    </div>
+
+    <!-- Filter buttons -->
+    <div class="filters reveal" id="filters"></div>
+    </div>
+
+    <!-- ── PROJECT GRID (2 columns) ── -->
+    <div class="projects-grid" id="projectsGrid">
+
+      <!-- Project 1 -->
+      <div class="project-card reveal">
+        <div class="project-img-wrap">
+            <img src="image/OpticToOptic.png" alt="Optic to Optic" loading="lazy";this.parentElement.style.background='linear-gradient(135deg,#730FBF30,#730FBF10)'">
+          <div class="project-overlay">
+            <div class="project-overlay-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+          </div>
+          <span class="year-badge" style="background:rgba(168,85,247,0.2);color:#c084fc;border:1px solid rgba(168,85,247,0.3);">2025</span>
+        </div>
+        <div class="project-body">
+          <div class="project-meta">
+            <div>
+              <div class="project-title">Mobile App Design</div>
+              <div class="project-subtitle">iOS · Android</div>
+            </div>
+            <div class="project-arrow" style="background:rgba(168,85,247,0.1);color:#A855F7;">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+          </div>
+          <p class="project-desc">Pixel-perfect mobile interface with smooth micro-interactions, clean navigation flow, and user-tested layouts.</p>
+          <div class="project-tags">
+            <span class="project-tag" style="background:rgba(168,85,247,0.1);color:#c084fc;">Figma</span>
+            <span class="project-tag" style="background:rgba(6,182,212,0.1);color:#22d3ee;">Mobile</span>
+            <span class="project-tag" style="background:rgba(16,185,129,0.1);color:#34d399;">UX Research</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card reveal">
+        <div class="project-img-wrap">
+          <img src="E:\JUST KAAM\Web DEV\Appi Portfolio\image\Optic to Optic (2).png" alt="App UI Design"
+               onerror="this.src='https://images.unsplash.com/photo-1551650975-87deedd944c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600'" />
+          <div class="project-overlay">
+            <div class="project-overlay-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+          </div>
+          <span class="year-badge" style="background:rgba(236,72,153,0.2);color:#f472b6;border:1px solid rgba(236,72,153,0.3);">2025</span>
+        </div>
+        <div class="project-body">
+          <div class="project-meta">
+            <div>
+              <div class="project-title">App UI Design</div>
+              <div class="project-subtitle">Mobile · Dark Theme</div>
+            </div>
+            <div class="project-arrow" style="background:rgba(236,72,153,0.1);color:#EC4899;">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+          </div>
+          <p class="project-desc">Sleek dark-themed mobile application with modern card components, typography hierarchy, and fluid interactions.</p>
+          <div class="project-tags">
+            <span class="project-tag" style="background:rgba(236,72,153,0.1);color:#f472b6;">UI Kit</span>
+            <span class="project-tag" style="background:rgba(168,85,247,0.1);color:#c084fc;">Figma</span>
+            <span class="project-tag" style="background:rgba(249,115,22,0.1);color:#fb923c;">Branding</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card reveal">
+        <div class="project-img-wrap">
+          <img src="image/c2bbedf5df296d5bad798532fb53f86c841d543c.png" alt="Dashboard Design"
+               onerror="this.src='https://images.unsplash.com/photo-1460925895917-afdab827c52f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600'" />
+          <div class="project-overlay">
+            <div class="project-overlay-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+          </div>
+          <span class="year-badge" style="background:rgba(6,182,212,0.2);color:#22d3ee;border:1px solid rgba(6,182,212,0.3);">2024</span>
+        </div>
+        <div class="project-body">
+          <div class="project-meta">
+            <div>
+              <div class="project-title">Dashboard Design</div>
+              <div class="project-subtitle">Web App · Analytics</div>
+            </div>
+            <div class="project-arrow" style="background:rgba(6,182,212,0.1);color:#06B6D4;">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+          </div>
+          <p class="project-desc">Clean analytics dashboard with data visualization components, responsive grid layout, and accessible color palette.</p>
+          <div class="project-tags">
+            <span class="project-tag" style="background:rgba(6,182,212,0.1);color:#22d3ee;">Dashboard</span>
+            <span class="project-tag" style="background:rgba(168,85,247,0.1);color:#c084fc;">Web App</span>
+            <span class="project-tag" style="background:rgba(16,185,129,0.1);color:#34d399;">Data Viz</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project-card reveal">
+        <div class="project-img-wrap">
+          <img src="image/9fae36f43017cb58d3a4ce7ad1b3e9a3c07d6cd3.png" alt="E-commerce App"
+               onerror="this.src='https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600'" />
+          <div class="project-overlay">
+            <div class="project-overlay-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+          </div>
+          <span class="year-badge" style="background:rgba(249,115,22,0.2);color:#fb923c;border:1px solid rgba(249,115,22,0.3);">2024</span>
+        </div>
+        <div class="project-body">
+          <div class="project-meta">
+            <div>
+              <div class="project-title">E-Commerce App</div>
+              <div class="project-subtitle">Mobile · Shopping</div>
+            </div>
+            <div class="project-arrow" style="background:rgba(249,115,22,0.1);color:#F97316;">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+          </div>
+          <p class="project-desc">End-to-end shopping experience design — product listing, cart flow, checkout screens, and order tracking.</p>
+          <div class="project-tags">
+            <span class="project-tag" style="background:rgba(249,115,22,0.1);color:#fb923c;">E-Commerce</span>
+            <span class="project-tag" style="background:rgba(168,85,247,0.1);color:#c084fc;">Figma</span>
+            <span class="project-tag" style="background:rgba(16,185,129,0.1);color:#34d399;">UX Flow</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="project-card reveal">
+        <div class="project-img-wrap">
+          <img src="image/b561d125e47fdf0c87eabd8af1dc4c8c9e2207b4.png" alt="Brand Identity"
+               onerror="this.src='https://images.unsplash.com/photo-1561070791-2526d30994b5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600'" />
+          <div class="project-overlay">
+            <div class="project-overlay-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+          </div>
+          <span class="year-badge" style="background:rgba(16,185,129,0.2);color:#34d399;border:1px solid rgba(16,185,129,0.3);">2024</span>
+        </div>
+        <div class="project-body">
+          <div class="project-meta">
+            <div>
+              <div class="project-title">Brand Identity</div>
+              <div class="project-subtitle">Branding · Visual System</div>
+            </div>
+            <div class="project-arrow" style="background:rgba(16,185,129,0.1);color:#10B981;">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+          </div>
+          <p class="project-desc">Complete brand identity system including logo design, color palette, typography, and brand guidelines document.</p>
+          <div class="project-tags">
+            <span class="project-tag" style="background:rgba(16,185,129,0.1);color:#34d399;">Branding</span>
+            <span class="project-tag" style="background:rgba(168,85,247,0.1);color:#c084fc;">Identity</span>
+            <span class="project-tag" style="background:rgba(249,115,22,0.1);color:#fb923c;">Logo</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 6 -->
+      <div class="project-card reveal">
+        <div class="project-img-wrap">
+          <img src="image/6ecf096b22a1b9ee474688c33eab36129fcd4f41.png" alt="Finance App"
+               onerror="this.src='https://images.unsplash.com/photo-1563986768609-322da13575f3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=600'" />
+          <div class="project-overlay">
+            <div class="project-overlay-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+          </div>
+          <span class="year-badge" style="background:rgba(168,85,247,0.2);color:#c084fc;border:1px solid rgba(168,85,247,0.3);">2024</span>
+        </div>
+        <div class="project-body">
+          <div class="project-meta">
+            <div>
+              <div class="project-title">Finance App</div>
+              <div class="project-subtitle">FinTech · Mobile</div>
+            </div>
+            <div class="project-arrow" style="background:rgba(168,85,247,0.1);color:#A855F7;">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+          </div>
+          <p class="project-desc">Personal finance management app with intuitive budgeting tools, spending analytics, and secure transaction screens.</p>
+          <div class="project-tags">
+            <span class="project-tag" style="background:rgba(168,85,247,0.1);color:#c084fc;">FinTech</span>
+            <span class="project-tag" style="background:rgba(6,182,212,0.1);color:#22d3ee;">Mobile</span>
+            <span class="project-tag" style="background:rgba(16,185,129,0.1);color:#34d399;">UX Design</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /projects-grid -->
+
+    <div class="work-cta reveal">
+      <a class="btn-outline" href="https://www.fiverr.com/kanny__13" target="_blank" rel="noopener noreferrer">
+        View All on Fiverr
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER 2 -->
+<div class="ticker-wrap">
+  <div class="ticker-inner">
+    <span class="ticker-item">AI-Powered Design</span><span class="ticker-item">UI/UX Design</span><span class="ticker-item">Mobile App Design</span><span class="ticker-item">Web Design</span><span class="ticker-item">Figma Expert</span><span class="ticker-item">Pixel Perfect</span><span class="ticker-item">User Research</span><span class="ticker-item">Prototyping</span><span class="ticker-item">Brand Identity</span><span class="ticker-item">AI-Powered Design</span><span class="ticker-item">UI/UX Design</span><span class="ticker-item">Mobile App Design</span><span class="ticker-item">Web Design</span><span class="ticker-item">Figma Expert</span><span class="ticker-item">Pixel Perfect</span><span class="ticker-item">User Research</span><span class="ticker-item">Prototyping</span><span class="ticker-item">Brand Identity</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     SERVICES (unchanged)
+══════════════════════════════════════════════════════════════════════ -->
+<section id="services">
+  <div class="services-inner">
+    <div class="reveal" style="text-align:center;margin-bottom:80px;">
+      <div class="section-label" style="justify-content:center;">
+        <div class="section-line"></div>
+        <span class="section-tag">What I Do</span>
+        <div class="section-line" style="background:linear-gradient(90deg,#A855F7,#730FBF);"></div>
+      </div>
+      <h2 class="section-h2">Services &amp; <span class="grad-purple">Expertise</span></h2>
+      <p style="color:rgba(255,255,255,0.4);margin-top:16px;max-width:480px;font-size:18px;margin-left:auto;margin-right:auto;">End-to-end design services from research to pixel-perfect delivery.</p>
+    </div>
+    <div class="services-grid" id="servicesGrid"></div>
+
+    <!-- Web Showcase -->
+    <div class="showcase-block">
+      <div class="showcase-header reveal">
+        <div class="showcase-label-row">
+          <div class="showcase-line" style="background:linear-gradient(90deg,#EC4899,#A855F7);"></div>
+          <span class="showcase-tag" style="color:#EC4899;">Showcase</span>
+          <div class="showcase-line" style="background:linear-gradient(90deg,#A855F7,#EC4899);"></div>
+        </div>
+        <h2 class="section-h2">Web <span class="grad-pink">Design</span> &amp; Interfaces</h2>
+        <div class="showcase-sub">Every pixel tells a story.</div>
+      </div>
+      <div class="web-showcase reveal">
+        <img src="image/39c72378569286294544352b963b79ff2b4234d6.png" alt="Web Showcase"
+             onerror="this.src='https://images.unsplash.com/photo-1547082299-de196ea013d6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1400'" />
+        <div class="web-showcase-overlay"></div>
+        <div class="web-showcase-footer">
+          <div>
+            <div class="web-showcase-label">Featured</div>
+            <div class="web-showcase-title">Web UI/UX Design</div>
+            <div class="web-showcase-desc">Beautiful, conversion-focused web experiences</div>
+          </div>
+          <button class="btn-primary" onclick="scrollTo('contact')" style="white-space:nowrap;">Get a Quote →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Showcase -->
+    <div class="showcase-block">
+      <div class="showcase-header reveal">
+        <div class="showcase-label-row">
+          <div class="showcase-line" style="background:linear-gradient(90deg,#730FBF,#A855F7);"></div>
+          <span class="showcase-tag" style="color:#A855F7;">Specialization</span>
+          <div class="showcase-line" style="background:linear-gradient(90deg,#A855F7,#730FBF);"></div>
+        </div>
+        <h2 class="section-h2">Mobile App <span class="grad-purple">Design</span></h2>
+        <div class="showcase-sub">Small Screens. Limitless Ideas.</div>
+      </div>
+      <div class="mobile-showcase reveal">
+        <div class="phone-item" style="transform:scale(0.80);transform-origin:bottom center;"><img src="image/6ecf096b22a1b9ee474688c33eab36129fcd4f41.png" alt="" style="width:105px;"/></div>
+        <div class="phone-item" style="transform:scale(1.05);transform-origin:bottom center;"><img src="image/52b878e170e6480f34b2c2618308ae2a96897042.png" alt="" style="width:140px;"/></div>
+        <div class="phone-item" style="transform:scale(1.00);transform-origin:bottom center;"><img src="image/b2756ec7053fca3b02b7fca4dae2d17bb707fa1d.png" alt="" style="width:140px;"/></div>
+        <div class="phone-item" style="transform:scale(0.90);transform-origin:bottom center;"><img src="image/c2bbedf5df296d5bad798532fb53f86c841d543c.png" alt="" style="width:110px;"/></div>
+        <div class="phone-item" style="transform:scale(0.84);transform-origin:bottom center;"><img src="image/9fae36f43017cb58d3a4ce7ad1b3e9a3c07d6cd3.png" alt="" style="width:100px;"/></div>
+        <div class="phone-item" style="transform:scale(0.78);transform-origin:bottom center;"><img src="image/b561d125e47fdf0c87eabd8af1dc4c8c9e2207b4.png" alt="" style="width:100px;"/></div>
+      </div>
+    </div>
+
+    <!-- Process -->
+    <div>
+      <div class="showcase-header reveal">
+        <div class="showcase-label-row">
+          <div class="showcase-line" style="background:linear-gradient(90deg,#730FBF,#A855F7);"></div>
+          <span class="showcase-tag" style="color:#A855F7;">My Process</span>
+          <div class="showcase-line" style="background:linear-gradient(90deg,#A855F7,#730FBF);"></div>
+        </div>
+        <h2 class="section-h2">How I <span class="grad-amber">Work</span></h2>
+      </div>
+      <div class="process-grid" id="processGrid"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     CONTACT (unchanged)
+══════════════════════════════════════════════════════════════════════ -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="reveal" style="text-align:center;margin-bottom:80px;">
+      <div class="section-label" style="justify-content:center;">
+        <div class="section-line"></div>
+        <span class="section-tag">Let's Connect</span>
+        <div class="section-line" style="background:linear-gradient(90deg,#A855F7,#730FBF);"></div>
+      </div>
+      <h2 class="section-h2">Ready to Build <span class="grad-multi">Something Great?</span></h2>
+      <p style="color:rgba(255,255,255,0.4);margin-top:16px;max-width:480px;font-size:18px;margin-left:auto;margin-right:auto;">Whether you have a project in mind or just want to explore possibilities — let's talk.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal-left">
+        <a class="contact-card" href="mailto:kanzu1292@gmail.com">
+          <div class="contact-card-icon" style="background:rgba(168,85,247,0.2);color:#A855F7;">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </div>
+          <div><div class="contact-card-label">Email Me</div><div class="contact-card-value">kanzu1292@gmail.com</div></div>
+        </a>
+        <a class="contact-card" href="https://fiverr.com/kanny__13" target="_blank" rel="noopener">
+          <div class="contact-card-icon" style="background:rgba(29,191,115,0.2);color:#1DBF73;">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div><div class="contact-card-label">Fiverr</div><div class="contact-card-value">Order directly via Fiverr</div></div>
+        </a>
+        <div>
+          <div class="social-title">Find Me On</div>
+          <div class="social-links">
+            <a class="social-link" href="https://www.linkedin.com/in/kanza-iqbal" target="_blank" title="LinkedIn">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a class="social-link" href="https://www.instagram.com" target="_blank" title="Instagram">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a class="social-link" href="https://fiverr.com/kanny__13" target="_blank" title="Fiverr">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </a>
+            <a class="social-link" href="mailto:kanzu1292@gmail.com" title="Email">
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="faq-title">Quick Answers</div>
+          <div id="faqList"></div>
+        </div>
+      </div>
+      <div class="reveal-right">
+        <div class="contact-form-wrap" id="formWrap">
+          <div class="form-row">
+            <div>
+              <label class="form-label">Your Name</label>
+              <input class="form-input" type="text" id="inputName" placeholder="John Doe" required />
+            </div>
+            <div>
+              <label class="form-label">Email Address</label>
+              <input class="form-input" type="email" id="inputEmail" placeholder="john@example.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Project Type</label>
+            <select class="form-select" id="inputProject">
+              <option value="" disabled selected>Select a service…</option>
+              <option value="mobile">Mobile App Design</option>
+              <option value="web">Web UI/UX Design</option>
+              <option value="brand">Brand Identity</option>
+              <option value="figma">Figma Prototype</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Tell Me About Your Project</label>
+            <textarea class="form-textarea" id="inputMessage" rows="5" placeholder="Describe your project, goals, and any specific requirements…"></textarea>
+          </div>
+          <button class="btn-submit" id="btnSubmit" onclick="handleSubmit()">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Send Message
+          </button>
+        </div>
+        <div class="success-state" id="successState">
+          <svg class="success-icon" width="56" height="56" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <div class="success-title">Message Sent! 🎉</div>
+          <p class="success-desc">Thanks for reaching out! I'll review your project and get back to you within 24 hours.</p>
+          <button class="btn-reset" onclick="resetForm()">Send Another</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     FOOTER (unchanged)
+══════════════════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="footer-logo-icon">KI</div>
+          <span class="footer-logo-name">K.<span>Iqbal</span></span>
+        </div>
+        <p class="footer-tagline">UI/UX Designer crafting meaningful digital experiences. Available for freelance worldwide.</p>
+      </div>
+      <nav class="footer-nav">
+        <button onclick="scrollTo('home')">Home</button>
+        <button onclick="scrollTo('about')">About</button>
+        <button onclick="scrollTo('work')">Work</button>
+        <button onclick="scrollTo('services')">Services</button>
+        <button onclick="scrollTo('contact')">Contact</button>
+      </nav>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© <span id="footerYear"></span> Kanza Iqbal · All rights reserved.</p>
+      <div class="footer-made">
+        <span>Designed &amp; built with</span>
+        <span class="heart">♥</span>
+        <span>using Figma</span>
+      </div>
+      <button class="footer-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+    </div>
+  </div>
+</footer>
+
+<script src="scrip1.js"></script>
+</body>
+</html>
