@@ -134,7 +134,7 @@ const projects = [
   { id:12, title:'Nexus Interface',   subtitle:'Creator Growth Engine',          category:['Admin Dashboard', 'Web Design'],   tags:['SaaS', 'Admin Panel', 'Dahboard'], image: IMG+'The Nexus Interface.png',  accent:'#0a434a', desc:'A powerful dark-themed analytics web application designed to help creators monitor performance metrics and optimize digital growth.', url: 'https://www.behance.net/gallery/248843841/The-Nexus-Interface' },
 ];
 
-let categories = ['All','Mobile App','Web Design','E-Commerce','Landing Page', 'Admin Dashboard'] ;
+let categories = ['All','Mobile App','Web Design','Landing Page', 'Admin Dashboard'] ;
 let activeCategory = 'All';
 const filtersEl = document.getElementById('filters');
 const gridEl    = document.getElementById('projectsGrid');
