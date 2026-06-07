@@ -81,7 +81,7 @@ const skills = [
   { name:'UI/UX Design',      level:95, color:'#A855F7' },
   { name:'Mobile App Design', level:92, color:'#EC4899' },
   { name:'Web Design',        level:88, color:'#8B5CF6' },
-  { name:'Figma',             level:97, color:'#F97316' },
+  { name:'Product Design',             level:97, color:'#F97316' },
   { name:'Prototyping',       level:90, color:'#06B6D4' },
   { name:'User Research',     level:85, color:'#10B981' },
 ];
