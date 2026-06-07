@@ -51,7 +51,7 @@ for (let i = 0; i < 14; i++) {
 }
 
 // ── TYPEWRITER ───────────────────────────────────────────────────────────────
-const roles = ['UI/UX Designer','Mobile App Designer','Web Designer','Visual Storyteller'];
+const roles = ['UI/UX Designer','Mobile App Designer','Web Designer','Visual Storyteller','Product Designer'];
 let roleIndex = 0, charIndex = 0, typing = true;
 const tw = document.getElementById('typewriter');
 
