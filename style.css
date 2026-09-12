@@ -309,6 +309,16 @@ nav#navbar.scrolled {
   width:46px; height:46px; border-radius:12px;
   display:flex; align-items:center; justify-content:center;
   font-size:17px; font-weight:700; color:#fff; flex-shrink:0;
+  overflow:hidden;
+}
+.exp-icon img {
+  width:100%; height:100%;
+  object-fit:contain;
+  border-radius:inherit;
+}
+.exp-icon-asapp img {
+  width:70%; height:70%;
+  object-fit:contain;
 }
 .exp-title-row { display:flex; align-items:center; gap:8px; margin-bottom:2px; }
 .exp-name { color:#fff; font-weight:700; font-size:15px; }
