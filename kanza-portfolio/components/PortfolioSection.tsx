@@ -2,14 +2,20 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import portfolioIllustration from "@/assets/portofiloMain.png";
 import texture from "@/assets/ForegraoundBG.png";
 import orange from "@/assets/hoverbg.png";
 import RevealBackground from "./RevealBackground";
 
 export default function PortfolioSection() {
-  const sectionRef = useRef<HTMLElement>(null);
+  const sectionRef = useRef<HTMLElement | null>(null);
   const prefersReducedMotion = useReducedMotion();
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -20,10 +26,10 @@ export default function PortfolioSection() {
     damping: 24,
     mass: 0.8,
   });
-  const containerScale = useTransform(smoothProgress, [0, 1], [0.78, 1]);
-  const containerY = useTransform(smoothProgress, [0, 1], [85, 0]);
-  const containerOpacity = useTransform(smoothProgress, [0, 1], [0.35, 1]);
-  const backgroundDim = useTransform(smoothProgress, [0, 1], [0, 0.24]);
+  const containerScale = useTransform(smoothProgress, [0, 1], [0.68, 1]);
+  const containerY = useTransform(smoothProgress, [0, 1], [130, 0]);
+  const containerOpacity = useTransform(smoothProgress, [0, 1], [0.16, 1]);
+  const backgroundDim = useTransform(smoothProgress, [0, 1], [0, 0.32]);
 
   return (
     <section
@@ -94,7 +100,7 @@ export default function PortfolioSection() {
           <br />
           <span className="text-[#f35b0b]">LIFE</span>
         </p>
-      </div>
+      </motion.div>
     </section>
   );
 }

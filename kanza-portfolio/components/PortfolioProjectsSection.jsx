@@ -121,15 +121,15 @@ export default function PortfolioProjectsSection() {
           initial={
             prefersReducedMotion
               ? false
-              : { opacity: 0, x: -75, y: 48, scale: 0.35, rotate: -30 }
+              : { opacity: 0, x: -160, y: 64, scale: 0.18, rotate: -42 }
           }
           whileInView={{ opacity: 1, x: 0, y: 0, scale: 1, rotate: 0 }}
           viewport={{ once: true, amount: 0.6 }}
           transition={{
             type: "spring",
-            stiffness: 58,
-            damping: 17,
-            mass: 0.9,
+            stiffness: 42,
+            damping: 16,
+            mass: 0.95,
           }}
           className="hidden items-center justify-center md:col-[2/3] md:row-[2/3] md:flex"
         >

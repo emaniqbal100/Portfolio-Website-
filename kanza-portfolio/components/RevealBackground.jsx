@@ -115,7 +115,7 @@ export default function RevealBackground({
     <div ref={sectionRef} className="absolute inset-0 overflow-hidden">
       {/* neeche: orange watercolor (hoverbg), hamesha maujood */}
       <Image src={orange} alt="" fill priority={priority} className="object-cover" />
-      <div aria-hidden="true" className="absolute inset-0 bg-[#3d302c]/35" />
+      <div aria-hidden="true" className="absolute inset-0 bg-[#3d302c]/40" />
 
       {/* upar: grey texture (ForegraoundBG), cursor ke pas gol hissa "kat" jata hai */}
       <div

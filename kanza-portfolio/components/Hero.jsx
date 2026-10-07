@@ -446,7 +446,7 @@ export default function Hero() {
     target: heroRef,
     offset: ["start start", "end start"],
   });
-  const scrollDim = useTransform(scrollYProgress, [0, 0.55, 1], [0, 0.2, 0.42]);
+  const scrollDim = useTransform(scrollYProgress, [0, 0.55, 1], [0, 0.22, 0.46]);
 
   return (
     <section ref={heroRef} id="home" className="relative min-h-screen overflow-hidden bg-ink">
