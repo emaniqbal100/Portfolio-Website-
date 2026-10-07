@@ -57,10 +57,10 @@ export default function PortfolioProjectsSection() {
     <section
       id="portfolio"
       aria-label="Selected design work"
-      className="relative flex min-h-screen items-center overflow-hidden px-5 py-12 sm:px-8 md:py-10 md:pl-[78px] md:pr-10"
+      className="relative flex min-h-screen items-center overflow-hidden px-5 py-12 sm:px-8 md:py-10 md:pl-[62px] md:pr-7"
     >
       <Image src={texture} alt="" fill sizes="100vw" className="object-cover" />
-      <div className="relative z-10 mx-auto grid w-full max-w-[1180px] grid-cols-1 gap-4 md:grid-cols-[minmax(0,0.92fr)_64px_minmax(0,1fr)] md:grid-rows-[minmax(220px,260px)_80px_minmax(220px,255px)] md:gap-4 xl:grid-cols-[minmax(0,0.92fr)_80px_minmax(0,1fr)]">
+      <div className="relative z-10 mx-auto grid w-full max-w-[1180px] grid-cols-1 gap-4 md:grid-cols-[minmax(0,0.92fr)_64px_minmax(0,1fr)] md:grid-rows-[205px_64px_202px] md:gap-3 xl:grid-cols-[minmax(0,0.92fr)_64px_minmax(0,1fr)]">
         {projects.map((project, index) => {
           const placement = [
             "md:col-[1/3] md:row-[1/2]",
@@ -76,21 +76,21 @@ export default function PortfolioProjectsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.18 }}
               transition={{ duration: 0.5, delay: index * 0.07 }}
-              className={`group relative grid min-h-[260px] overflow-hidden rounded-[20px] border border-[#77736f]/35 bg-[#c3bfbb]/65 p-5 shadow-[inset_0_2px_12px_rgba(40,38,36,0.11),0_10px_28px_rgba(50,46,43,0.09)] backdrop-blur-sm md:min-h-0 md:grid-cols-[1fr_1fr] md:gap-2 md:p-5 ${placement}`}
+              className={`group relative grid min-h-[260px] overflow-hidden rounded-[20px] border border-[#77736f]/35 bg-[#c3bfbb]/65 p-5 shadow-[inset_0_2px_12px_rgba(40,38,36,0.11),0_10px_28px_rgba(50,46,43,0.09)] backdrop-blur-sm md:min-h-0 md:grid-cols-[1.15fr_0.85fr] md:gap-2 md:p-4 ${placement}`}
             >
               <div className="relative z-10 flex flex-col items-start">
-                <h2 className="text-[clamp(1.3rem,2.3vw,1.65rem)] font-bold tracking-[-0.035em] text-[#f35b0b]">
+                <h2 className="text-[clamp(1.1rem,2vw,1.4rem)] font-bold tracking-[-0.035em] text-[#f35b0b]">
                   {project.title}
                 </h2>
-                <p className="mt-1.5 text-[13px] font-semibold text-[#453a35]">
+                <p className="mt-1.5 text-[13px] font-semibold text-[#453a35] md:text-[11px]">
                   {project.category}
                 </p>
-                <p className="mt-2 max-w-[245px] text-[11px] leading-[1.55] text-[#707983] sm:text-xs">
+                <p className="mt-2 max-w-[245px] text-[11px] leading-[1.55] text-[#707983] md:text-[10px]">
                   {project.description}
                 </p>
                 <a
                   href="#contact"
-                  className="mt-auto pt-4 text-[11px] font-medium text-[#ee5b11] transition-colors hover:text-[#a43b06] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ee5b11]"
+                  className="mt-auto pt-4 text-[11px] font-medium text-[#ee5b11] transition-colors hover:text-[#a43b06] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ee5b11] md:text-[9px]"
                 >
                   {project.action}
                   <span aria-hidden="true" className="ml-2">→</span>
@@ -113,9 +113,9 @@ export default function PortfolioProjectsSection() {
           <Image
             src={pencilArtwork}
             alt=""
-            width={80}
-            height={80}
-            className="h-16 w-16 object-contain xl:h-20 xl:w-20"
+            width={64}
+            height={64}
+            className="h-16 w-16 object-contain"
           />
         </div>
       </div>
