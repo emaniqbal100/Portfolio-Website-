@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import profile from "@/assets/mainimage.png";
 
 const ORANGE = "#ff6a00";
 
@@ -141,7 +142,7 @@ export default function Sidebar() {
         title="Kanza Iqbal"
       >
         <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#f6eee7] text-[10px] font-bold text-[#3d302c]">
-          KI
+          <img src="profile" alt="" />
         </span>
         {expanded && (
           <span className="whitespace-nowrap text-xs font-semibold text-white">

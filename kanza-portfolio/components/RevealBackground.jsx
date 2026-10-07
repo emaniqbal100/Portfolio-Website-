@@ -9,6 +9,7 @@ export default function RevealBackground({
   radius = 220,
   feather = 160,
   priority = false,
+  fadeOutAt,
 }) {
   const sectionRef = useRef(null);
   const greyRef = useRef(null);
@@ -76,16 +77,52 @@ export default function RevealBackground({
     };
   }, []);
 
+  useEffect(() => {
+    const section = sectionRef.current;
+    const greyEl = greyRef.current;
+    const target = fadeOutAt ? document.querySelector(fadeOutAt) : null;
+    if (!section || !greyEl || !target) return;
+
+    let raf = 0;
+
+    const updateFade = () => {
+      const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+      const targetTop = target.getBoundingClientRect().top + window.scrollY;
+      const distance = Math.max(1, targetTop - sectionTop);
+      const progress = Math.min(1, Math.max(0, (window.scrollY - sectionTop) / distance));
+
+      greyEl.style.opacity = String(1 - progress);
+      greyEl.style.transform = `translateY(${progress * 24}px) scale(${1 - progress * 0.025})`;
+      raf = 0;
+    };
+
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(updateFade);
+    };
+
+    updateFade();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      cancelAnimationFrame(raf);
+    };
+  }, [fadeOutAt]);
+
   return (
     <div ref={sectionRef} className="absolute inset-0 overflow-hidden">
       {/* neeche: orange watercolor (hoverbg), hamesha maujood */}
       <Image src={orange} alt="" fill priority={priority} className="object-cover" />
+      <div aria-hidden="true" className="absolute inset-0 bg-[#3d302c]/20" />
 
       {/* upar: grey texture (ForegraoundBG), cursor ke pas gol hissa "kat" jata hai */}
       <div
         ref={greyRef}
         className="absolute inset-0"
         style={{
+          willChange: fadeOutAt ? "opacity, transform" : undefined,
           WebkitMaskImage: `radial-gradient(${radius}px circle at var(--mx, -9999px) var(--my, -9999px), transparent 0, transparent ${radius}px, #000 ${radius + feather}px, #000 100%)`,
           maskImage: `radial-gradient(${radius}px circle at var(--mx, -9999px) var(--my, -9999px), transparent 0, transparent ${radius}px, #000 ${radius + feather}px, #000 100%)`,
         }}

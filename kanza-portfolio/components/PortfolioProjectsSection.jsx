@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import texture from "@/assets/ForegraoundBG.png";
 import orange from "@/assets/hoverbg.png";
 import RevealBackground from "./RevealBackground";
@@ -58,6 +58,8 @@ const projects = [
 ];
 
 export default function PortfolioProjectsSection() {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
     <section
       id="portfolio"
@@ -115,7 +117,22 @@ export default function PortfolioProjectsSection() {
           );
         })}
 
-        <div className="hidden items-center justify-center md:col-[2/3] md:row-[2/3] md:flex">
+        <motion.div
+          initial={
+            prefersReducedMotion
+              ? false
+              : { opacity: 0, x: -75, y: 48, scale: 0.35, rotate: -30 }
+          }
+          whileInView={{ opacity: 1, x: 0, y: 0, scale: 1, rotate: 0 }}
+          viewport={{ once: true, amount: 0.6 }}
+          transition={{
+            type: "spring",
+            stiffness: 58,
+            damping: 17,
+            mass: 0.9,
+          }}
+          className="hidden items-center justify-center md:col-[2/3] md:row-[2/3] md:flex"
+        >
           <Image
             src={pencilArtwork}
             alt=""
@@ -123,7 +140,7 @@ export default function PortfolioProjectsSection() {
             height={64}
             className="h-16 w-16 object-contain"
           />
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -119,8 +119,7 @@ export default function AboutSection() {
             variants={fadeUp(0.25)}
             href="/resume.pdf"
             download
-            className="inline-flex items-center gap-2.5 rounded-full border-2 px-8 py-3.5 text-base font-semibold transition-colors hover:bg-[var(--orange)] hover:text-white"
-            style={{ borderColor: ORANGE, color: ORANGE, "--orange": ORANGE }}
+            className="inline-flex items-center gap-2.5 rounded-full border-2 border-[#ff6a00] px-8 py-3.5 text-base font-semibold text-[#ff6a00] transition-colors hover:bg-[#ff6a00] hover:!text-white focus-visible:bg-[#ff6a00] focus-visible:!text-white"
           >
             Download my Resume
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
