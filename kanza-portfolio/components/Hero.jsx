@@ -5,7 +5,9 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Poppins } from "next/font/google";
 import heroBg from "@/assets/HEROBG.png";
+import orangeBg from "@/assets/hoverbg.png";
 import cardImg from "@/assets/Group 10.png";
+import RevealBackground from "./RevealBackground";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["500", "600", "700"] });
 
@@ -442,7 +444,7 @@ export default function Hero() {
 
   return (
     <section id="home" className="relative min-h-screen overflow-hidden bg-ink">
-      <Image src={heroBg} alt="" fill priority sizes="100vw" className="object-cover" />
+      <RevealBackground grey={heroBg} orange={orangeBg} radius={150} feather={110} />
       <div className="absolute inset-0 bg-ink/30" />
       <motion.div
         variants={containerVariants}

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+
 export default function RevealBackground({ grey, orange, radius = 220, feather = 160 }) {
   const sectionRef = useRef(null);
   const greyRef = useRef(null);
@@ -12,35 +13,59 @@ export default function RevealBackground({ grey, orange, radius = 220, feather =
     if (!section || !greyEl) return;
     if (window.matchMedia("(pointer: coarse)").matches) return; // touch devices: effect off, grey hamesha visible
 
-    const cur = { x: -9999, y: -9999 };
-    const tgt = { x: -9999, y: -9999 };
+    const current = { x: -9999, y: -9999 };
+    const target = { x: -9999, y: -9999 };
     let raf = 0;
 
     const tick = () => {
-      cur.x += (tgt.x - cur.x) * 0.15;
-      cur.y += (tgt.y - cur.y) * 0.15;
-      greyEl.style.setProperty("--mx", `${cur.x}px`);
-      greyEl.style.setProperty("--my", `${cur.y}px`);
+      current.x += (target.x - current.x) * 0.2;
+      current.y += (target.y - current.y) * 0.2;
+      greyEl.style.setProperty("--mx", `${current.x}px`);
+      greyEl.style.setProperty("--my", `${current.y}px`);
+
+      if (Math.abs(target.x - current.x) < 0.5 && Math.abs(target.y - current.y) < 0.5) {
+        current.x = target.x;
+        current.y = target.y;
+        greyEl.style.setProperty("--mx", `${current.x}px`);
+        greyEl.style.setProperty("--my", `${current.y}px`);
+        raf = 0;
+        return;
+      }
+
       raf = requestAnimationFrame(tick);
     };
 
     const onMove = (e) => {
       const r = section.getBoundingClientRect();
-      tgt.x = e.clientX - r.left;
-      tgt.y = e.clientY - r.top;
-    };
-    const onLeave = () => {
-      tgt.x = -9999;
-      tgt.y = -9999;
+      const isInside =
+        e.clientX >= r.left &&
+        e.clientX <= r.right &&
+        e.clientY >= r.top &&
+        e.clientY <= r.bottom;
+
+      if (!isInside) {
+        if (target.x !== -9999) {
+          target.x = -9999;
+          target.y = -9999;
+          if (!raf) raf = requestAnimationFrame(tick);
+        }
+        return;
+      }
+
+      target.x = e.clientX - r.left;
+      target.y = e.clientY - r.top;
+      if (!raf) {
+        current.x = target.x;
+        current.y = target.y;
+        greyEl.style.setProperty("--mx", `${current.x}px`);
+        greyEl.style.setProperty("--my", `${current.y}px`);
+      }
     };
 
     window.addEventListener("pointermove", onMove);
-    section.addEventListener("pointerleave", onLeave);
-    raf = requestAnimationFrame(tick);
 
     return () => {
       window.removeEventListener("pointermove", onMove);
-      section.removeEventListener("pointerleave", onLeave);
       cancelAnimationFrame(raf);
     };
   }, []);

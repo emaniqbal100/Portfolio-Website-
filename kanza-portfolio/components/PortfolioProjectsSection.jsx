@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import texture from "@/assets/ForegraoundBG.png";
+import orange from "@/assets/hoverbg.png";
+import RevealBackground from "./RevealBackground";
 import caseStudyArtwork from "@/assets/Group.png";
 import websiteArtwork from "@/assets/webDesign.png";
 import dashboardArtwork from "@/assets/OBJECTS.png";
@@ -59,8 +61,8 @@ export default function PortfolioProjectsSection() {
       aria-label="Selected design work"
       className="relative flex min-h-screen items-center overflow-hidden px-5 py-12 sm:px-8 md:py-10 md:pl-[62px] md:pr-7"
     >
-      <Image src={texture} alt="" fill sizes="100vw" className="object-cover" />
-      <div className="relative z-10 mx-auto grid w-full max-w-[1180px] grid-cols-1 gap-4 md:grid-cols-[minmax(0,0.92fr)_64px_minmax(0,1fr)] md:grid-rows-[205px_64px_202px] md:gap-3 xl:grid-cols-[minmax(0,0.92fr)_64px_minmax(0,1fr)]">
+      <RevealBackground grey={texture} orange={orange} radius={145} feather={95} />
+      <div className="relative z-10 mx-auto grid w-full max-w-[1180px] grid-cols-1 gap-4 md:grid-cols-[minmax(0,0.92fr)_64px_minmax(0,1fr)] md:grid-rows-[215px_64px_212px] md:gap-3 xl:grid-cols-[minmax(0,0.92fr)_64px_minmax(0,1fr)]">
         {projects.map((project, index) => {
           const placement = [
             "md:col-[1/3] md:row-[1/2]",
@@ -79,18 +81,18 @@ export default function PortfolioProjectsSection() {
               className={`group relative grid min-h-[260px] overflow-hidden rounded-[20px] border border-[#77736f]/35 bg-[#c3bfbb]/65 p-5 shadow-[inset_0_2px_12px_rgba(40,38,36,0.11),0_10px_28px_rgba(50,46,43,0.09)] backdrop-blur-sm md:min-h-0 md:grid-cols-[1.15fr_0.85fr] md:gap-2 md:p-4 ${placement}`}
             >
               <div className="relative z-10 flex flex-col items-start">
-                <h2 className="text-[clamp(1.1rem,2vw,1.4rem)] font-bold tracking-[-0.035em] text-[#f35b0b]">
+                <h2 className="text-[clamp(1.2rem,2.1vw,1.5rem)] font-bold tracking-[-0.035em] text-[#f35b0b]">
                   {project.title}
                 </h2>
-                <p className="mt-1.5 text-[13px] font-semibold text-[#453a35] md:text-[11px]">
+                <p className="mt-1.5 text-[13px] font-semibold text-[#453a35] md:text-xs">
                   {project.category}
                 </p>
-                <p className="mt-2 max-w-[245px] text-[11px] leading-[1.55] text-[#707983] md:text-[10px]">
+                <p className="mt-2 max-w-[245px] text-xs leading-[1.55] text-[#707983] md:text-[11px]">
                   {project.description}
                 </p>
                 <a
                   href="#contact"
-                  className="mt-auto pt-4 text-[11px] font-medium text-[#ee5b11] transition-colors hover:text-[#a43b06] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ee5b11] md:text-[9px]"
+                  className="mt-auto pt-4 text-xs font-medium text-[#ee5b11] transition-colors hover:text-[#a43b06] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ee5b11] md:text-[10px]"
                 >
                   {project.action}
                   <span aria-hidden="true" className="ml-2">→</span>
