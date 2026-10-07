@@ -10,8 +10,15 @@ const navItems = [
   { key: "portfolio", href: "#portfolio", label: "Portfolio", icon: PortfolioIcon },
   { key: "career", href: "#career", label: "Career journey", icon: CareerIcon },
   { key: "about", href: "#about", label: "About me", icon: CareerIcon },
-  { key: "explore", href: "#explore", label: "What I explore", icon: PortfolioIcon },
+  { key: "explore", href: "#explore", label: "Explore", icon: ExploreIcon },
   { key: "contact", href: "#contact", label: "Let's connect", icon: ConnectIcon },
+];
+
+const portfolioLinks = [
+  { label: "UI/UX", href: "#case-studies", icon: DesignIcon },
+  { label: "Mobile Apps", href: "#mobile-apps", icon: MobileIcon },
+  { label: "Websites", href: "#websites", icon: WebsiteIcon },
+  { label: "Case Study", href: "#case-studies", icon: CaseStudyIcon },
 ];
 
 function HomeIcon({ active }) {
@@ -27,6 +34,7 @@ function HomeIcon({ active }) {
     </svg>
   );
 }
+
 function PortfolioIcon({ active }) {
   return (
     <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
@@ -35,6 +43,7 @@ function PortfolioIcon({ active }) {
     </svg>
   );
 }
+
 function CareerIcon({ active }) {
   return (
     <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
@@ -43,6 +52,16 @@ function CareerIcon({ active }) {
     </svg>
   );
 }
+
+function ExploreIcon({ active }) {
+  return (
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+      <path d="m4 17 5-5 3 3 7-8" stroke={active ? "#fff" : "#8a8a93"} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M14 7h5v5" stroke={active ? "#fff" : "#8a8a93"} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 function ConnectIcon({ active }) {
   return (
     <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
@@ -56,45 +75,150 @@ function ConnectIcon({ active }) {
   );
 }
 
+function DesignIcon() {
+  return (
+    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" aria-hidden="true">
+      <path d="m4 17 9-9 4 4-9 9H4v-4Zm11-11 2-2 4 4-2 2" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function MobileIcon() {
+  return (
+    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" aria-hidden="true">
+      <rect x="6" y="2.8" width="12" height="18.4" rx="2" stroke="currentColor" strokeWidth="1.6" />
+      <path d="M10 18h4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function WebsiteIcon() {
+  return (
+    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" aria-hidden="true">
+      <rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" strokeWidth="1.6" />
+      <path d="M3 8h18M7 6h.01M10 6h.01" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function CaseStudyIcon() {
+  return (
+    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" aria-hidden="true">
+      <path d="M5 3h10l4 4v14H5V3Z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
+      <path d="M14 3v5h5M8 12h8M8 16h6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 export default function Sidebar() {
   const [active, setActive] = useState("home");
+  const [expanded, setExpanded] = useState(false);
+
+  function handleBlur(event) {
+    if (!event.currentTarget.contains(event.relatedTarget)) {
+      setExpanded(false);
+    }
+  }
 
   return (
     <motion.aside
       initial={{ opacity: 0, x: -16 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.6, delay: 0.4 }}
-      className="fixed left-4 top-1/2 z-40 hidden -translate-y-1/2 flex-col items-center gap-2 rounded-[28px] bg-[#1c1a1f] px-2.5 py-4 shadow-[0_14px_30px_-10px_rgba(0,0,0,0.5)] md:flex"
+      animate={{ opacity: 1, x: 0, width: expanded ? 246 : 56 }}
+      transition={{ duration: 0.22, ease: "easeOut" }}
+      onPointerEnter={() => setExpanded(true)}
+      onPointerLeave={() => setExpanded(false)}
+      onFocusCapture={() => setExpanded(true)}
+      onBlurCapture={handleBlur}
+      className="fixed left-4 top-1/2 z-50 flex max-h-[calc(100svh-32px)] -translate-y-1/2 flex-col overflow-hidden rounded-[22px] bg-[#211c1a] py-2.5 shadow-[0_14px_30px_-10px_rgba(0,0,0,0.5)]"
     >
-      <div
-        className="mb-1 flex h-9 w-9 items-center justify-center rounded-full text-xs font-bold text-white"
-        style={{ background: ORANGE }}
+      <a
+        href="#home"
+        onClick={() => setActive("home")}
+        className={`mx-2.5 mb-1 flex h-10 shrink-0 items-center rounded-xl transition-colors ${
+          expanded ? "gap-3 px-2" : "justify-center"
+        }`}
+        aria-label="Kanza Iqbal, home"
         title="Kanza Iqbal"
       >
-        KI
-      </div>
+        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#f6eee7] text-[10px] font-bold text-[#3d302c]">
+          KI
+        </span>
+        {expanded && (
+          <span className="whitespace-nowrap text-xs font-semibold text-white">
+            Kanza Iqbal
+          </span>
+        )}
+      </a>
 
-      <nav className="flex flex-col items-center gap-1.5">
-        {navItems.map(({ key, href, label, icon: Icon }) => {
-          const isActive = active === key;
-          return (
-            <a
-              key={key}
-              href={href}
-              onClick={() => setActive(key)}
-              title={label}
-              aria-label={label}
-              aria-current={isActive ? "location" : undefined}
-              className="flex h-9 w-9 items-center justify-center rounded-xl transition-colors"
-              style={{ background: isActive ? ORANGE : "transparent" }}
-            >
-              <Icon active={isActive} />
-            </a>
-          );
-        })}
+      <nav aria-label="Main navigation" className="min-h-0 overflow-y-auto px-2">
+        <div className="flex flex-col gap-1">
+          {navItems.map(({ key, href, label, icon: Icon }) => {
+            const isActive = active === key;
+            return (
+              <div key={key}>
+                <a
+                  href={href}
+                  onClick={() => setActive(key)}
+                  title={expanded ? undefined : label}
+                  aria-label={label}
+                  aria-current={isActive ? "location" : undefined}
+                  className={`flex h-9 shrink-0 items-center rounded-lg transition-colors hover:bg-white/10 ${
+                    expanded ? "gap-3 px-2.5" : "justify-center"
+                  }`}
+                  style={{ background: isActive ? "#ffffff12" : "transparent" }}
+                >
+                  <span
+                    className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-lg ${
+                      isActive ? "bg-[#4a3b35]" : ""
+                    }`}
+                    style={isActive ? { color: ORANGE } : undefined}
+                  >
+                    <Icon active={isActive} />
+                  </span>
+                  {expanded && (
+                    <span
+                      className={`whitespace-nowrap text-xs ${
+                        isActive ? "font-semibold text-white" : "text-[#d5ccc6]"
+                      }`}
+                    >
+                      {label}
+                    </span>
+                  )}
+                </a>
+                {expanded && key === "portfolio" && (
+                  <div className="mb-1 ml-4 mt-1 border-l border-white/15 pb-1 pl-2">
+                    {portfolioLinks.map(({ label: itemLabel, href: itemHref, icon: ItemIcon }) => (
+                      <a
+                        key={itemLabel}
+                        href={itemHref}
+                        onClick={() => setActive("portfolio")}
+                        className="flex h-8 items-center gap-2 rounded-md px-1.5 text-[11px] text-[#c8bfba] transition-colors hover:bg-white/10 hover:text-white"
+                      >
+                        <ItemIcon />
+                        <span className="whitespace-nowrap">{itemLabel}</span>
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
       </nav>
 
-      <span className="mt-1 h-2 w-2 rounded-full bg-emerald-400" title="Available for work" />
+      <div
+        className={`mx-2.5 mt-1 flex h-8 shrink-0 items-center ${
+          expanded ? "gap-2 px-2" : "justify-center"
+        }`}
+        title="Available for work"
+      >
+        <span className="h-2 w-2 shrink-0 rounded-full bg-emerald-400" />
+        {expanded && (
+          <span className="whitespace-nowrap text-[10px] font-semibold text-emerald-400">
+            Available for work
+          </span>
+        )}
+      </div>
     </motion.aside>
   );
 }

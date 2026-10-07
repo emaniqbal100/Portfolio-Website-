@@ -14,6 +14,7 @@ import pencilArtwork from "@/assets/Pencil.png";
 const projects = [
   {
     title: "Case Studies",
+    id: "case-studies",
     category: "Product · UX Strategy",
     description:
       "Thoughtful digital experiences built around users, business goals, and usability.",
@@ -24,6 +25,7 @@ const projects = [
   },
   {
     title: "Website Designs",
+    id: "websites",
     category: "Web · Responsive · SaaS",
     description:
       "Modern responsive websites balancing aesthetics, usability, and conversion.",
@@ -44,6 +46,7 @@ const projects = [
   },
   {
     title: "Mobile Applications",
+    id: "mobile-apps",
     category: "iOS · Android · Mobile UX",
     description:
       "Intuitive mobile products designed from user flows to polished interfaces.",
@@ -74,6 +77,7 @@ export default function PortfolioProjectsSection() {
           return (
             <motion.article
               key={project.title}
+              id={project.id}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.18 }}
