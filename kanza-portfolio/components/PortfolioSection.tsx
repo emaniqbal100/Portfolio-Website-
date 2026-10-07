@@ -15,7 +15,7 @@ import orange from "@/assets/hoverbg.png";
 import RevealBackground from "./RevealBackground";
 
 export default function PortfolioSection() {
-  const sectionRef = useRef<HTMLElement | null>(null);
+  const sectionRef = useRef(null);
   const prefersReducedMotion = useReducedMotion();
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -73,7 +73,7 @@ export default function PortfolioSection() {
             />
           </svg>
           <span>Portfolio</span>
-        </motion.div>
+        </div>
 
         <h2
           id="portfolio-title"

@@ -2,7 +2,13 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import { Poppins } from "next/font/google";
 import heroBg from "@/assets/HEROBG.png";
 import orangeBg from "@/assets/hoverbg.png";
@@ -441,12 +447,21 @@ export default function Hero() {
   const cardRef = useRef(null);
   const glowRef = useRef(null);
   const heroRef = useRef(null);
+  const prefersReducedMotion = useReducedMotion();
   useBorderGlow(cardRef, glowRef);
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"],
   });
-  const scrollDim = useTransform(scrollYProgress, [0, 0.55, 1], [0, 0.22, 0.46]);
+  const smoothScrollProgress = useSpring(scrollYProgress, {
+    stiffness: 80,
+    damping: 24,
+    mass: 0.7,
+  });
+  const scrollDim = useTransform(smoothScrollProgress, [0, 0.55, 1], [0, 0.22, 0.46]);
+  const heroScale = useTransform(smoothScrollProgress, [0, 0.45, 1], [1, 1.08, 1.28]);
+  const heroY = useTransform(smoothScrollProgress, [0, 1], [0, -64]);
+  const heroOpacity = useTransform(smoothScrollProgress, [0, 0.5, 1], [1, 0.86, 0]);
 
   return (
     <section ref={heroRef} id="home" className="relative min-h-screen overflow-hidden bg-ink">
@@ -468,6 +483,11 @@ export default function Hero() {
         variants={containerVariants}
         initial="hidden"
         animate="show"
+        style={
+          prefersReducedMotion
+            ? undefined
+            : { scale: heroScale, y: heroY, opacity: heroOpacity }
+        }
         className={`${poppins.className} relative z-10 mx-auto grid min-h-[calc(100svh-84px)] w-full place-items-center px-4 py-10 [--w:min(78vw,320px)] md:[--w:clamp(260px,min(28.5vw,calc((100svh_-_180px)*0.643)),440px)]`}
       >
         <h1 className="sr-only">Kanza Iqbal — UI UX &amp; Product Designer</h1>
