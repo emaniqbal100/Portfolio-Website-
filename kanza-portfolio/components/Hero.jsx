@@ -441,7 +441,7 @@ export default function Hero() {
   useBorderGlow(cardRef, glowRef);
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-ink">
+    <section id="home" className="relative min-h-screen overflow-hidden bg-ink">
       <Image src={heroBg} alt="" fill priority sizes="100vw" className="object-cover" />
       <div className="absolute inset-0 bg-ink/30" />
       <motion.div

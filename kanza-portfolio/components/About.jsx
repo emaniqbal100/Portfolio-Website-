@@ -23,7 +23,7 @@ const container = {
 
 export default function AboutSection() {
   return (
-    <section className="relative min-h-screen overflow-hidden px-6 py-10 md:px-10 lg:pl-20">
+    <section id="about" className="relative flex min-h-screen items-center overflow-hidden px-6 py-10 md:px-10 lg:pl-20">
       <RevealBackground grey={greyBg} orange={orangeBg} radius={110} feather={70} />
 
       <motion.div

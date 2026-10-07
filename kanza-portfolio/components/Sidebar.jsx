@@ -6,10 +6,12 @@ import { motion } from "framer-motion";
 const ORANGE = "#ff6a00";
 
 const navItems = [
-  { key: "home", label: "Home", icon: HomeIcon },
-  { key: "portfolio", label: "Portfolio", icon: PortfolioIcon },
-  { key: "career", label: "Career journey", icon: CareerIcon },
-  { key: "connect", label: "Let's connect", icon: ConnectIcon },
+  { key: "home", href: "#home", label: "Home", icon: HomeIcon },
+  { key: "portfolio", href: "#portfolio", label: "Portfolio", icon: PortfolioIcon },
+  { key: "career", href: "#career", label: "Career journey", icon: CareerIcon },
+  { key: "about", href: "#about", label: "About me", icon: CareerIcon },
+  { key: "explore", href: "#explore", label: "What I explore", icon: PortfolioIcon },
+  { key: "contact", href: "#contact", label: "Let's connect", icon: ConnectIcon },
 ];
 
 function HomeIcon({ active }) {
@@ -73,20 +75,21 @@ export default function Sidebar() {
       </div>
 
       <nav className="flex flex-col items-center gap-1.5">
-        {navItems.map(({ key, label, icon: Icon }) => {
+        {navItems.map(({ key, href, label, icon: Icon }) => {
           const isActive = active === key;
           return (
-            <button
+            <a
               key={key}
+              href={href}
               onClick={() => setActive(key)}
               title={label}
               aria-label={label}
-              aria-current={isActive}
+              aria-current={isActive ? "location" : undefined}
               className="flex h-9 w-9 items-center justify-center rounded-xl transition-colors"
               style={{ background: isActive ? ORANGE : "transparent" }}
             >
               <Icon active={isActive} />
-            </button>
+            </a>
           );
         })}
       </nav>

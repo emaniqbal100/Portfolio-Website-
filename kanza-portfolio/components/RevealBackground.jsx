@@ -2,13 +2,6 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-
-/**
- * Do layers: neeche orange texture (hamesha maujood), upar grey texture.
- * Grey ke upar ek radial-gradient mask lagti hai jo cursor ki position
- * follow karti hai — us gol area mein grey "kat" jata hai aur orange
- * neeche se dikhta hai. Baaki jagah grey normal visible rehta hai.
- */
 export default function RevealBackground({ grey, orange, radius = 220, feather = 160 }) {
   const sectionRef = useRef(null);
   const greyRef = useRef(null);
