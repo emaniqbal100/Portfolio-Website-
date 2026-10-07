@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Poppins } from "next/font/google";
 import heroBg from "@/assets/HEROBG.png";
 import orangeBg from "@/assets/hoverbg.png";
@@ -440,10 +440,16 @@ function WhyBadge(props) {
 export default function Hero() {
   const cardRef = useRef(null);
   const glowRef = useRef(null);
+  const heroRef = useRef(null);
   useBorderGlow(cardRef, glowRef);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  const scrollDim = useTransform(scrollYProgress, [0, 0.55, 1], [0, 0.2, 0.42]);
 
   return (
-    <section id="home" className="relative min-h-screen overflow-hidden bg-ink">
+    <section ref={heroRef} id="home" className="relative min-h-screen overflow-hidden bg-ink">
       <RevealBackground
         grey={heroBg}
         orange={orangeBg}
@@ -453,6 +459,11 @@ export default function Hero() {
         fadeOutAt="#portfolio-intro"
       />
       <div className="absolute inset-0 bg-ink/30" />
+      <motion.div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-[1] bg-[#171311]"
+        style={{ opacity: scrollDim }}
+      />
       <motion.div
         variants={containerVariants}
         initial="hidden"

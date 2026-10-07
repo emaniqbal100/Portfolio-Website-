@@ -1,19 +1,56 @@
+"use client";
+
+import { useRef } from "react";
 import Image from "next/image";
+import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
 import portfolioIllustration from "@/assets/portofiloMain.png";
 import texture from "@/assets/ForegraoundBG.png";
 import orange from "@/assets/hoverbg.png";
 import RevealBackground from "./RevealBackground";
 
 export default function PortfolioSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const prefersReducedMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "center center"],
+  });
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 70,
+    damping: 24,
+    mass: 0.8,
+  });
+  const containerScale = useTransform(smoothProgress, [0, 1], [0.78, 1]);
+  const containerY = useTransform(smoothProgress, [0, 1], [85, 0]);
+  const containerOpacity = useTransform(smoothProgress, [0, 1], [0.35, 1]);
+  const backgroundDim = useTransform(smoothProgress, [0, 1], [0, 0.24]);
+
   return (
     <section
+      ref={sectionRef}
       id="portfolio-intro"
       aria-labelledby="portfolio-title"
       className="relative flex min-h-screen items-center justify-center overflow-hidden px-5 py-12 sm:px-8"
     >
       <RevealBackground grey={texture} orange={orange} radius={150} feather={100} />
+      <motion.div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-[1] bg-[#282321]"
+        style={{ opacity: prefersReducedMotion ? 0.12 : backgroundDim }}
+      />
 
-      <div className="relative z-10 w-full max-w-[620px] rounded-[20px] border border-white/25 bg-[#b9b6b2]/55 px-6 py-8 shadow-[inset_0_2px_12px_rgba(40,38,36,0.18),0_12px_32px_rgba(45,42,39,0.12)] backdrop-blur-[2px] sm:rounded-[22px] sm:px-[42px] sm:py-[46px]">
+      <motion.div
+        className="relative z-10 w-full max-w-[620px] rounded-[20px] border border-white/25 bg-[#b9b6b2]/55 px-6 py-8 shadow-[inset_0_2px_12px_rgba(40,38,36,0.18),0_12px_32px_rgba(45,42,39,0.12)] backdrop-blur-[2px] sm:rounded-[22px] sm:px-[42px] sm:py-[46px]"
+        style={
+          prefersReducedMotion
+            ? undefined
+            : {
+                scale: containerScale,
+                y: containerY,
+                opacity: containerOpacity,
+              }
+        }
+      >
         <div className="mb-4 flex items-center gap-2 text-[13px] font-semibold uppercase tracking-[0.16em] text-[#68717b] sm:text-sm">
           <svg
             aria-hidden="true"
@@ -30,7 +67,7 @@ export default function PortfolioSection() {
             />
           </svg>
           <span>Portfolio</span>
-        </div>
+        </motion.div>
 
         <h2
           id="portfolio-title"

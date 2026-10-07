@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import profile from "@/assets/mainimage.png";
 
@@ -141,9 +142,13 @@ export default function Sidebar() {
         aria-label="Kanza Iqbal, home"
         title="Kanza Iqbal"
       >
-        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#f6eee7] text-[10px] font-bold text-[#3d302c]">
-          <img src="profile" alt="" />
-        </span>
+        <Image
+          src={profile}
+          alt=""
+          width={32}
+          height={32}
+          className="h-8 w-8 shrink-0 rounded-full bg-[#f6eee7] object-cover"
+        />
         {expanded && (
           <span className="whitespace-nowrap text-xs font-semibold text-white">
             Kanza Iqbal
