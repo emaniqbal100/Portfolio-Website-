@@ -444,7 +444,7 @@ export default function Hero() {
 
   return (
     <section id="home" className="relative min-h-screen overflow-hidden bg-ink">
-      <RevealBackground grey={heroBg} orange={orangeBg} radius={150} feather={110} />
+      <RevealBackground grey={heroBg} orange={orangeBg} radius={150} feather={110} priority />
       <div className="absolute inset-0 bg-ink/30" />
       <motion.div
         variants={containerVariants}

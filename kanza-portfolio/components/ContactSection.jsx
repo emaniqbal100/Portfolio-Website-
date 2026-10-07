@@ -5,6 +5,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import portrait from "@/assets/mainimage.png";
 import texture from "@/assets/ForegraoundBG.png";
+import orange from "@/assets/hoverbg.png";
+import RevealBackground from "./RevealBackground";
 
 const projectTypes = [
   "SaaS / Dashboard",
@@ -34,7 +36,7 @@ export default function ContactSection() {
       aria-labelledby="contact-title"
       className="relative flex min-h-screen items-center overflow-hidden px-5 py-16 sm:px-8 lg:px-12"
     >
-      <Image src={texture} alt="" fill sizes="100vw" className="object-cover" />
+      <RevealBackground grey={texture} orange={orange} radius={145} feather={95} />
       <div className="relative z-10 mx-auto grid w-full max-w-[1120px] items-center gap-10 md:grid-cols-[1fr_1fr]">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -47,7 +49,7 @@ export default function ContactSection() {
           </div>
           <h2
             id="contact-title"
-            className="text-[clamp(2.7rem,7vw,4.5rem)] font-bold leading-[0.97] tracking-[-0.055em] text-[#3d302c]"
+            className="text-[clamp(2.9rem,7.3vw,4.8rem)] font-bold leading-[0.97] tracking-[-0.055em] text-[#3d302c]"
           >
             Give me a half-
             <br />
@@ -68,14 +70,14 @@ export default function ContactSection() {
               className="h-[54px] w-[54px] rounded-full bg-[#f35b0b] object-contain"
             />
             <div>
-              <p className="text-xs font-semibold text-[#68717b]">Kanza Iqbal</p>
-              <p className="text-[11px] text-[#68717b]">
+              <p className="text-sm font-semibold text-[#68717b]">Kanza Iqbal</p>
+              <p className="text-xs text-[#68717b]">
                 <span className="mr-1 text-emerald-500">●</span>Usually replies
                 within a day
               </p>
             </div>
           </div>
-          <div className="mt-5 flex flex-wrap gap-3 text-xs">
+          <div className="mt-5 flex flex-wrap gap-3 text-sm">
             <a
               href="mailto:kannyqb@gmail.com"
               className="rounded-xl border border-[#f35b0b] px-4 py-3 font-semibold text-[#f35b0b] transition-colors hover:bg-[#f35b0b] hover:text-white"
@@ -89,7 +91,7 @@ export default function ContactSection() {
               kannyqb@gmail.com
             </a>
           </div>
-          <nav aria-label="Social links" className="mt-6 flex flex-wrap gap-4 text-[11px] text-[#68717b]">
+          <nav aria-label="Social links" className="mt-6 flex flex-wrap gap-4 text-xs text-[#68717b]">
             {["LinkedIn", "Behance", "99designs", "Upwork"].map((label) => (
               <a
                 key={label}
@@ -111,7 +113,7 @@ export default function ContactSection() {
           className="rounded-[22px] border border-white/35 bg-[#bebbb7]/60 p-5 shadow-[inset_0_2px_12px_rgba(40,38,36,0.12),0_12px_28px_rgba(50,46,43,0.1)] backdrop-blur-sm sm:p-7"
         >
           <fieldset>
-            <legend className="mb-2 text-[11px] font-semibold text-[#3d302c]">
+            <legend className="mb-2 text-xs font-semibold text-[#3d302c]">
               What are we building?
             </legend>
             <div className="flex flex-wrap gap-1.5">
@@ -121,7 +123,7 @@ export default function ContactSection() {
                   type="button"
                   aria-pressed={projectType === type}
                   onClick={() => setProjectType(type)}
-                  className={`rounded-full border px-3 py-1.5 text-[10px] transition-colors ${
+                  className={`rounded-full border px-3 py-1.5 text-[11px] transition-colors ${
                     projectType === type
                       ? "border-[#f35b0b] bg-[#f35b0b] text-white"
                       : "border-white/50 text-[#3d302c] hover:border-[#f35b0b]"
@@ -134,7 +136,7 @@ export default function ContactSection() {
           </fieldset>
 
           <div className="mt-5 grid grid-cols-2 gap-3">
-            <label className="text-[11px] font-semibold text-[#3d302c]">
+            <label className="text-xs font-semibold text-[#3d302c]">
               Your name
               <input
                 name="name"
@@ -144,7 +146,7 @@ export default function ContactSection() {
                 placeholder="Your name"
               />
             </label>
-            <label className="text-[11px] font-semibold text-[#3d302c]">
+            <label className="text-xs font-semibold text-[#3d302c]">
               Email
               <input
                 name="email"
@@ -157,7 +159,7 @@ export default function ContactSection() {
             </label>
           </div>
 
-          <label className="mt-4 block text-[11px] font-semibold text-[#3d302c]">
+          <label className="mt-4 block text-xs font-semibold text-[#3d302c]">
             Budget
             <select
               name="budget"
@@ -171,7 +173,7 @@ export default function ContactSection() {
             </select>
           </label>
 
-          <label className="mt-4 block text-[11px] font-semibold text-[#3d302c]">
+          <label className="mt-4 block text-xs font-semibold text-[#3d302c]">
             Tell me about it
             <textarea
               name="message"

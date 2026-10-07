@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import texture from "@/assets/ForegraoundBG.png";
+import orange from "@/assets/hoverbg.png";
+import RevealBackground from "./RevealBackground";
 
 const cycle = ["explore", "design"];
 const tools = ["Figma", "Ai", "Ps", "Ae", "Canva", "P"];
@@ -78,14 +79,14 @@ function ExploreIcon({ word }) {
 function InfoCard({ label, icon, title, children }) {
   return (
     <article className="rounded-[20px] border border-white/35 bg-[#bbb8b4]/65 p-4 shadow-[inset_0_2px_10px_rgba(40,38,36,0.1)] backdrop-blur-sm sm:p-5">
-      <p className="flex items-center gap-2 text-[11px] font-semibold text-[#453a35]">
+      <p className="flex items-center gap-2 text-xs font-semibold text-[#453a35]">
         <span aria-hidden="true" className="text-[#68717b]">{icon}</span>
         {label}
       </p>
-      <h3 className="mt-2 text-[15px] font-bold leading-snug text-[#f35b0b] sm:text-base">
+      <h3 className="mt-2 text-base font-bold leading-snug text-[#f35b0b] sm:text-lg">
         {title}
       </h3>
-      <p className="mt-1.5 text-[11px] leading-[1.55] text-[#433c38] sm:text-xs">
+      <p className="mt-1.5 text-xs leading-[1.55] text-[#433c38] sm:text-[13px]">
         {children}
       </p>
     </article>
@@ -112,12 +113,12 @@ export default function ExploreSection() {
       aria-labelledby="explore-title"
       className="relative flex min-h-screen w-full items-center overflow-hidden px-5 py-14 text-[#3d302c] sm:px-8 sm:py-16"
     >
-      <Image src={texture} alt="" fill sizes="100vw" className="object-cover" />
+      <RevealBackground grey={texture} orange={orange} radius={145} feather={95} />
       <div className="relative z-10 mx-auto w-full max-w-[1000px]">
         <div className="mb-7 text-center sm:mb-9">
           <h2
             id="explore-title"
-            className="mt-1 text-[clamp(1.9rem,5.6vw,2.65rem)] font-bold leading-tight tracking-[-0.045em]"
+            className="mt-1 text-[clamp(2.1rem,5.8vw,2.9rem)] font-bold leading-tight tracking-[-0.045em]"
           >
             The more I{" "}
             <span className="inline-flex items-center gap-2 whitespace-nowrap text-[#6d7782]">

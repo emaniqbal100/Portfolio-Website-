@@ -3,7 +3,13 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 
-export default function RevealBackground({ grey, orange, radius = 220, feather = 160 }) {
+export default function RevealBackground({
+  grey,
+  orange,
+  radius = 220,
+  feather = 160,
+  priority = false,
+}) {
   const sectionRef = useRef(null);
   const greyRef = useRef(null);
 
@@ -73,7 +79,7 @@ export default function RevealBackground({ grey, orange, radius = 220, feather =
   return (
     <div ref={sectionRef} className="absolute inset-0 overflow-hidden">
       {/* neeche: orange watercolor (hoverbg), hamesha maujood */}
-      <Image src={orange} alt="" fill priority className="object-cover" />
+      <Image src={orange} alt="" fill priority={priority} className="object-cover" />
 
       {/* upar: grey texture (ForegraoundBG), cursor ke pas gol hissa "kat" jata hai */}
       <div
@@ -84,7 +90,7 @@ export default function RevealBackground({ grey, orange, radius = 220, feather =
           maskImage: `radial-gradient(${radius}px circle at var(--mx, -9999px) var(--my, -9999px), transparent 0, transparent ${radius}px, #000 ${radius + feather}px, #000 100%)`,
         }}
       >
-        <Image src={grey} alt="" fill className="object-cover" />
+        <Image src={grey} alt="" fill priority={priority} className="object-cover" />
       </div>
     </div>
   );

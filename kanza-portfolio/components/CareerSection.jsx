@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import texture from "@/assets/ForegraoundBG.png";
+import orange from "@/assets/hoverbg.png";
+import RevealBackground from "./RevealBackground";
 
 const roles = [
   {
@@ -47,7 +48,7 @@ export default function CareerSection() {
       aria-labelledby="career-title"
       className="relative flex min-h-screen items-center overflow-hidden px-6 py-20 sm:px-10 lg:px-14"
     >
-      <Image src={texture} alt="" fill sizes="100vw" className="object-cover" />
+      <RevealBackground grey={texture} orange={orange} radius={145} feather={95} />
       <div className="relative z-10 mx-auto grid w-full max-w-[1130px] items-center gap-12 md:grid-cols-[0.8fr_1.2fr]">
         <motion.div
           initial={{ opacity: 0, x: -22 }}
@@ -67,7 +68,7 @@ export default function CareerSection() {
             <br />
             <span className="text-[#f35b0b]">Delivered!</span>
           </h2>
-          <p className="mt-5 max-w-[390px] text-[14px] leading-[1.65] text-[#6d7782]">
+          <p className="mt-5 max-w-[390px] text-base leading-[1.65] text-[#6d7782]">
             2 years and 1 month of experience across studios, agencies, and
             global platforms, focused on solving real user problems through
             thoughtful UX and intuitive UI.
@@ -116,7 +117,7 @@ export default function CareerSection() {
                       <span className="mt-0.5 block text-sm font-semibold text-[#f35b0b]">
                         {role.title}
                       </span>
-                      <span className="mt-1 block text-[9px] font-medium tracking-[0.11em] text-[#68717b]">
+                      <span className="mt-1 block text-[10px] font-medium tracking-[0.11em] text-[#68717b]">
                         {role.date} · {role.location}
                       </span>
                     </span>
@@ -141,7 +142,7 @@ export default function CareerSection() {
                           {role.bullets.map((bullet) => (
                             <li
                               key={bullet}
-                              className="flex gap-2 text-[12px] leading-relaxed text-[#34302f]"
+                              className="flex gap-2 text-[13px] leading-relaxed text-[#34302f]"
                             >
                               <span className="text-[#f35b0b]">•</span>
                               {bullet}
