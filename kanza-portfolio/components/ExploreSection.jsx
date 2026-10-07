@@ -115,33 +115,32 @@ export default function ExploreSection() {
       <Image src={texture} alt="" fill sizes="100vw" className="object-cover" />
       <div className="relative z-10 mx-auto w-full max-w-[1000px]">
         <div className="mb-7 text-center sm:mb-9">
-          <div className="flex min-h-14 items-center justify-center gap-2">
-            <AnimatePresence mode="wait">
-              <motion.span
-                key={word}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -12 }}
-                transition={{ duration: 0.3 }}
-                className="text-3xl font-bold tracking-[-0.04em] text-[#f35b0b] sm:text-4xl"
-              >
-                {word}
-              </motion.span>
-            </AnimatePresence>
-            <motion.span
-              key={`${word}-icon`}
-              initial={{ opacity: 0, rotate: -18, scale: 0.8 }}
-              animate={{ opacity: 1, rotate: 0, scale: 1 }}
-              transition={{ duration: 0.35 }}
-            >
-              <ExploreIcon word={word} />
-            </motion.span>
-          </div>
           <h2
             id="explore-title"
             className="mt-1 text-[clamp(1.9rem,5.6vw,2.65rem)] font-bold leading-tight tracking-[-0.045em]"
           >
-            The more I <span className="text-[#6d7782]">{word}</span>
+            The more I{" "}
+            <span className="inline-flex items-center gap-2 whitespace-nowrap text-[#6d7782]">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={word}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -12 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {word}
+                </motion.span>
+              </AnimatePresence>
+              <motion.span
+                key={`${word}-icon`}
+                initial={{ opacity: 0, rotate: -18, scale: 0.8 }}
+                animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                transition={{ duration: 0.35 }}
+              >
+                <ExploreIcon word={word} />
+              </motion.span>
+            </span>
           </h2>
         </div>
 
