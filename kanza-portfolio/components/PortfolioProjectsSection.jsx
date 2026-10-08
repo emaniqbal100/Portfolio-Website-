@@ -67,7 +67,7 @@ export default function PortfolioProjectsSection() {
       className="relative flex min-h-screen items-center overflow-hidden px-5 py-12 sm:px-8 md:py-10 md:pl-[62px] md:pr-7"
     >
       <RevealBackground grey={texture} orange={orange} radius={145} feather={95} />
-      <div className="relative z-10 mx-auto grid w-full max-w-[1180px] grid-cols-1 gap-4 md:grid-cols-[minmax(0,0.92fr)_64px_minmax(0,1fr)] md:grid-rows-[215px_64px_212px] md:gap-3 xl:grid-cols-[minmax(0,0.92fr)_64px_minmax(0,1fr)]">
+      <div className="relative z-10 mx-auto grid w-full max-w-[1320px] grid-cols-1 gap-5 md:grid-cols-[minmax(0,0.92fr)_72px_minmax(0,1fr)] md:grid-rows-[250px_72px_245px] md:gap-4 xl:grid-cols-[minmax(0,0.92fr)_72px_minmax(0,1fr)]">
         {projects.map((project, index) => {
           const placement = [
             "md:col-[1/3] md:row-[1/2]",
@@ -84,16 +84,16 @@ export default function PortfolioProjectsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.18 }}
               transition={{ duration: 0.5, delay: index * 0.07 }}
-              className={`group relative grid min-h-[260px] overflow-hidden rounded-[20px] border border-[#77736f]/35 bg-[#c3bfbb]/65 p-5 shadow-[inset_0_2px_12px_rgba(40,38,36,0.11),0_10px_28px_rgba(50,46,43,0.09)] backdrop-blur-sm md:min-h-0 md:grid-cols-[1.15fr_0.85fr] md:gap-2 md:p-4 ${placement}`}
+              className={`group relative grid min-h-[290px] overflow-hidden rounded-[22px] border border-[#77736f]/35 bg-[#c3bfbb]/65 p-6 shadow-[inset_0_2px_12px_rgba(40,38,36,0.11),0_10px_28px_rgba(50,46,43,0.09)] backdrop-blur-sm md:min-h-0 md:grid-cols-[1.15fr_0.85fr] md:gap-3 md:p-5 ${placement}`}
             >
               <div className="relative z-10 flex flex-col items-start">
-                <h2 className="text-[clamp(1.2rem,2.1vw,1.5rem)] font-bold tracking-[-0.035em] text-[#f35b0b]">
+                <h2 className="text-[clamp(1.35rem,2.3vw,1.7rem)] font-bold tracking-[-0.035em] text-[#f35b0b]">
                   {project.title}
                 </h2>
                 <p className="mt-1.5 text-[13px] font-semibold text-[#453a35] md:text-xs">
                   {project.category}
                 </p>
-                <p className="mt-2 max-w-[245px] text-xs leading-[1.55] text-[#707983] md:text-[11px]">
+                <p className="mt-2 max-w-[280px] text-[13px] leading-[1.6] text-[#707983] md:text-xs">
                   {project.description}
                 </p>
                 <a
@@ -138,7 +138,7 @@ export default function PortfolioProjectsSection() {
             alt=""
             width={64}
             height={64}
-            className="h-16 w-16 object-contain"
+            className="h-[72px] w-[72px] object-contain"
           />
         </motion.div>
       </div>

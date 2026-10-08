@@ -125,7 +125,7 @@ export default function Sidebar() {
   return (
     <motion.aside
       initial={{ opacity: 0, x: -16 }}
-      animate={{ opacity: 1, x: 0, width: expanded ? 246 : 56 }}
+      animate={{ opacity: 1, x: 0, width: expanded ? 264 : 60 }}
       transition={{ duration: 0.22, ease: "easeOut" }}
       onPointerEnter={() => setExpanded(true)}
       onPointerLeave={() => setExpanded(false)}
@@ -147,7 +147,7 @@ export default function Sidebar() {
           alt=""
           width={32}
           height={32}
-          className="h-8 w-8 shrink-0 rounded-full bg-[#f6eee7] object-cover"
+          className="h-9 w-9 shrink-0 rounded-full bg-[#f6eee7] object-cover"
         />
         {expanded && (
           <span className="whitespace-nowrap text-xs font-semibold text-white">
@@ -168,13 +168,13 @@ export default function Sidebar() {
                   title={expanded ? undefined : label}
                   aria-label={label}
                   aria-current={isActive ? "location" : undefined}
-                  className={`flex h-9 shrink-0 items-center rounded-lg transition-colors hover:bg-white/10 ${
+                  className={`flex h-10 shrink-0 items-center rounded-lg transition-colors hover:bg-white/10 ${
                     expanded ? "gap-3 px-2.5" : "justify-center"
                   }`}
                   style={{ background: isActive ? "#ffffff12" : "transparent" }}
                 >
                   <span
-                    className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-lg ${
+                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${
                       isActive ? "bg-[#4a3b35]" : ""
                     }`}
                     style={isActive ? { color: ORANGE } : undefined}

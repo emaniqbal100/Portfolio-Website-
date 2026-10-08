@@ -13,6 +13,7 @@ import { Poppins } from "next/font/google";
 import heroBg from "@/assets/HEROBG.png";
 import orangeBg from "@/assets/hoverbg.png";
 import cardImg from "@/assets/Group 10.png";
+import transitionContainer from "@/assets/container.png";
 import RevealBackground from "./RevealBackground";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["500", "600", "700"] });
@@ -462,6 +463,9 @@ export default function Hero() {
   const heroScale = useTransform(smoothScrollProgress, [0, 0.45, 1], [1, 1.08, 1.28]);
   const heroY = useTransform(smoothScrollProgress, [0, 1], [0, -64]);
   const heroOpacity = useTransform(smoothScrollProgress, [0, 0.5, 1], [1, 0.86, 0]);
+  const transitionOpacity = useTransform(smoothScrollProgress, [0, 0.18, 0.45, 0.82, 1], [0, 0.65, 1, 0.55, 0]);
+  const transitionY = useTransform(smoothScrollProgress, [0, 0.45, 1], [170, 0, -110]);
+  const transitionScale = useTransform(smoothScrollProgress, [0, 0.45, 1], [0.78, 1, 0.9]);
 
   return (
     <section ref={heroRef} id="home" className="relative min-h-screen overflow-hidden bg-ink">
@@ -480,6 +484,22 @@ export default function Hero() {
         style={{ opacity: scrollDim }}
       />
       <motion.div
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-[-15%] left-1/2 z-[2] w-[min(48vw,340px)] -translate-x-1/2"
+        style={
+          prefersReducedMotion
+            ? { opacity: 0 }
+            : { opacity: transitionOpacity, y: transitionY, scale: transitionScale }
+        }
+      >
+        <Image
+          src={transitionContainer}
+          alt=""
+          sizes="(min-width: 768px) 340px, 48vw"
+          className="h-auto w-full drop-shadow-[0_24px_48px_rgba(30,24,20,0.24)]"
+        />
+      </motion.div>
+      <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="show"
@@ -488,7 +508,7 @@ export default function Hero() {
             ? undefined
             : { scale: heroScale, y: heroY, opacity: heroOpacity }
         }
-        className={`${poppins.className} relative z-10 mx-auto grid min-h-[calc(100svh-84px)] w-full place-items-center px-4 py-10 [--w:min(78vw,320px)] md:[--w:clamp(260px,min(28.5vw,calc((100svh_-_180px)*0.643)),440px)]`}
+        className={`${poppins.className} relative z-10 mx-auto grid min-h-[calc(100svh-84px)] w-full place-items-center px-4 py-10 [--w:min(82vw,340px)] md:[--w:clamp(280px,min(31vw,calc((100svh_-_160px)*0.68)),480px)]`}
       >
         <h1 className="sr-only">Kanza Iqbal — UI UX &amp; Product Designer</h1>
 
@@ -498,7 +518,7 @@ export default function Hero() {
               src={cardImg}
               alt="Kanza Iqbal — UI UX & Product Designer"
               priority
-              sizes="(min-width: 768px) 440px, 320px"
+              sizes="(min-width: 768px) 480px, 340px"
               className="h-auto w-full drop-shadow-[0_24px_40px_rgba(0,0,0,0.35)]"
             />
             <BorderGlow glowRef={glowRef} />

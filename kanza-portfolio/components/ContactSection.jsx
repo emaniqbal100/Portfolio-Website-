@@ -37,7 +37,7 @@ export default function ContactSection() {
       className="relative flex min-h-screen items-center overflow-hidden px-5 py-16 sm:px-8 lg:px-12"
     >
       <RevealBackground grey={texture} orange={orange} radius={145} feather={95} />
-      <div className="relative z-10 mx-auto grid w-full max-w-[1120px] items-center gap-10 md:grid-cols-[1fr_1fr]">
+      <div className="relative z-10 mx-auto grid w-full max-w-[1280px] items-center gap-12 md:grid-cols-[1fr_1fr]">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -49,7 +49,7 @@ export default function ContactSection() {
           </div>
           <h2
             id="contact-title"
-            className="text-[clamp(2.9rem,7.3vw,4.8rem)] font-bold leading-[0.97] tracking-[-0.055em] text-[#3d302c]"
+            className="text-[clamp(3.1rem,7.7vw,5.2rem)] font-bold leading-[0.97] tracking-[-0.055em] text-[#3d302c]"
           >
             Give me a half-
             <br />
@@ -110,7 +110,7 @@ export default function ContactSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.55, delay: 0.1 }}
-          className="rounded-[22px] border border-white/35 bg-[#bebbb7]/60 p-5 shadow-[inset_0_2px_12px_rgba(40,38,36,0.12),0_12px_28px_rgba(50,46,43,0.1)] backdrop-blur-sm sm:p-7"
+          className="rounded-[24px] border border-white/35 bg-[#bebbb7]/60 p-6 shadow-[inset_0_2px_12px_rgba(40,38,36,0.12),0_12px_28px_rgba(50,46,43,0.1)] backdrop-blur-sm sm:p-8"
         >
           <fieldset>
             <legend className="mb-2 text-xs font-semibold text-[#3d302c]">

@@ -46,7 +46,7 @@ export default function PortfolioSection() {
       />
 
       <motion.div
-        className="relative z-10 w-full max-w-[620px] rounded-[20px] border border-white/25 bg-[#b9b6b2]/55 px-6 py-8 shadow-[inset_0_2px_12px_rgba(40,38,36,0.18),0_12px_32px_rgba(45,42,39,0.12)] backdrop-blur-[2px] sm:rounded-[22px] sm:px-[42px] sm:py-[46px]"
+        className="relative z-10 w-full max-w-[740px] rounded-[24px] border border-white/25 bg-[#b9b6b2]/55 px-7 py-9 shadow-[inset_0_2px_12px_rgba(40,38,36,0.18),0_12px_32px_rgba(45,42,39,0.12)] backdrop-blur-[2px] sm:rounded-[26px] sm:px-[54px] sm:py-[54px]"
         style={
           prefersReducedMotion
             ? undefined
@@ -77,25 +77,25 @@ export default function PortfolioSection() {
 
         <h2
           id="portfolio-title"
-          className="max-w-[470px] text-[clamp(2.25rem,6.5vw,2.8rem)] font-bold leading-[1.16] tracking-[-0.04em] text-[#6d7782]"
+          className="max-w-[560px] text-[clamp(2.5rem,7vw,3.3rem)] font-bold leading-[1.16] tracking-[-0.04em] text-[#6d7782]"
         >
           <span className="text-[#f35b0b]">Curiosity</span> sparks
           <br />
           Ideas....
         </h2>
 
-        <div className="relative mx-auto my-5 aspect-[668/320] w-full sm:my-3">
+        <div className="relative mx-auto my-6 aspect-[668/320] w-full sm:my-4">
           <Image
             src={portfolioIllustration}
             alt="A curious designer turning an idea into a colorful digital product"
             fill
-            sizes="(max-width: 640px) 85vw, 500px"
+            sizes="(max-width: 640px) 90vw, 620px"
             className="object-contain"
             priority
           />
         </div>
 
-        <p className="text-right text-[clamp(1.95rem,6vw,2.6rem)] font-bold leading-[1.15] tracking-[-0.045em] text-[#3d302c]">
+        <p className="text-right text-[clamp(2.2rem,6.6vw,3rem)] font-bold leading-[1.15] tracking-[-0.045em] text-[#3d302c]">
           <span className="text-[#6d7782]">Design</span> brings them to
           <br />
           <span className="text-[#f35b0b]">LIFE</span>

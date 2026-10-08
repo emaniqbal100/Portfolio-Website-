@@ -15,7 +15,7 @@ export default function Carousel() {
   const go = (dir) => setIndex((i) => (i + dir + slides.length) % slides.length);
 
   return (
-     <div className="relative mx-auto w-full max-w-[5640px]">
+     <div className="relative mx-auto w-full max-w-[640px]">
       <div className="relative aspect-[600/598] w-full">
         <AnimatePresence mode="wait">
           <motion.div

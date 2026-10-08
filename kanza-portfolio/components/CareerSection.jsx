@@ -49,7 +49,7 @@ export default function CareerSection() {
       className="relative flex min-h-screen items-center overflow-hidden px-6 py-20 sm:px-10 lg:px-14"
     >
       <RevealBackground grey={texture} orange={orange} radius={145} feather={95} />
-      <div className="relative z-10 mx-auto grid w-full max-w-[1130px] items-center gap-12 md:grid-cols-[0.8fr_1.2fr]">
+      <div className="relative z-10 mx-auto grid w-full max-w-[1280px] items-center gap-14 md:grid-cols-[0.8fr_1.2fr]">
         <motion.div
           initial={{ opacity: 0, x: -22 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -62,13 +62,13 @@ export default function CareerSection() {
           </div>
           <h2
             id="career-title"
-            className="text-[clamp(2.8rem,7vw,4.8rem)] font-bold leading-[1.02] tracking-[-0.055em] text-[#3d302c]"
+            className="text-[clamp(3rem,7.5vw,5.2rem)] font-bold leading-[1.02] tracking-[-0.055em] text-[#3d302c]"
           >
             Where I&apos;ve
             <br />
             <span className="text-[#f35b0b]">Delivered!</span>
           </h2>
-          <p className="mt-5 max-w-[390px] text-base leading-[1.65] text-[#6d7782]">
+          <p className="mt-5 max-w-[440px] text-[17px] leading-[1.7] text-[#6d7782]">
             2 years and 1 month of experience across studios, agencies, and
             global platforms, focused on solving real user problems through
             thoughtful UX and intuitive UI.
@@ -111,10 +111,10 @@ export default function CareerSection() {
                 >
                   <span className="flex items-start justify-between gap-4">
                     <span>
-                      <span className="block text-base font-bold text-[#3d302c]">
+                      <span className="block text-lg font-bold text-[#3d302c]">
                         {role.company}
                       </span>
-                      <span className="mt-0.5 block text-sm font-semibold text-[#f35b0b]">
+                      <span className="mt-0.5 block text-base font-semibold text-[#f35b0b]">
                         {role.title}
                       </span>
                       <span className="mt-1 block text-[10px] font-medium tracking-[0.11em] text-[#68717b]">

@@ -31,7 +31,7 @@ export default function AboutSection() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.3 }}
-        className="relative z-10 mx-auto grid max-w-7xl items-center gap-8 md:grid-cols-2"
+        className="relative z-10 mx-auto grid w-full max-w-[1440px] items-center gap-10 md:grid-cols-2"
       >
         <div>
           <motion.div variants={fadeUp(0)} className="mb-2 flex items-center gap-3">
@@ -60,7 +60,7 @@ export default function AboutSection() {
             </svg>
           </motion.div>
 
-          <motion.h2 variants={fadeUp(0.05)} className="mb-3 text-5xl font-bold sm:text-7xl" style={{ color: ORANGE }}>
+          <motion.h2 variants={fadeUp(0.05)} className="mb-3 text-6xl font-bold sm:text-8xl" style={{ color: ORANGE }}>
             Pixels to Product
           </motion.h2>
 
@@ -87,7 +87,7 @@ export default function AboutSection() {
               </svg>
             </div>
             <div className="flex items-center gap-4 px-7 py-5">
-              <h1 className="text-5xl font-extrabold tracking-wider sm:text-7xl" style={{ color: INK }}>
+              <h1               className="text-6xl font-extrabold tracking-wider sm:text-8xl" style={{ color: INK }}>
                 I&rsquo;m Kanza
               </h1>
               <svg width="34" height="34" viewBox="0 0 34 34" className="shrink-0">
