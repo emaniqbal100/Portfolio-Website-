@@ -468,8 +468,8 @@ export default function Hero() {
       <RevealBackground
         grey={heroBg}
         orange={orangeBg}
-        radius={135}
-        feather={95}
+        radius={120}
+        feather={80}
         priority
         fadeOutAt="#portfolio-intro"
       />
