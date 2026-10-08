@@ -124,14 +124,14 @@ export default function Sidebar() {
 
   return (
     <motion.aside
-      initial={{ opacity: 0, x: -16 }}
-      animate={{ opacity: 1, x: 0, width: expanded ? 264 : 60 }}
+      initial={{ opacity: 0, x: -16, y: "-50%" }}
+      animate={{ opacity: 1, x: 0, y: "-50%", width: expanded ? 264 : 60 }}
       transition={{ duration: 0.22, ease: "easeOut" }}
       onPointerEnter={() => setExpanded(true)}
       onPointerLeave={() => setExpanded(false)}
       onFocusCapture={() => setExpanded(true)}
       onBlurCapture={handleBlur}
-      className="fixed left-4 top-1/2 z-50 flex max-h-[calc(100svh-32px)] -translate-y-1/2 flex-col overflow-hidden rounded-[22px] bg-[#211c1a] py-2.5 shadow-[0_14px_30px_-10px_rgba(0,0,0,0.5)]"
+      className="fixed left-4 top-1/2 z-50 flex max-h-[calc(100svh-32px)] flex-col overflow-hidden rounded-[22px] bg-[#211c1a] py-2.5 shadow-[0_14px_30px_-10px_rgba(0,0,0,0.5)]"
     >
       <a
         href="#home"

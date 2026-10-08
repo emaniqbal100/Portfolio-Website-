@@ -485,11 +485,11 @@ export default function Hero() {
       />
       <motion.div
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-[-15%] left-1/2 z-[2] w-[min(48vw,340px)] -translate-x-1/2"
+        className="pointer-events-none absolute bottom-[-15%] left-1/2 z-[2] w-[min(48vw,340px)]"
         style={
           prefersReducedMotion
-            ? { opacity: 0 }
-            : { opacity: transitionOpacity, y: transitionY, scale: transitionScale }
+            ? { opacity: 0, x: "-50%" }
+            : { opacity: transitionOpacity, x: "-50%", y: transitionY, scale: transitionScale }
         }
       >
         <Image
@@ -508,7 +508,7 @@ export default function Hero() {
             ? undefined
             : { scale: heroScale, y: heroY, opacity: heroOpacity }
         }
-        className={`${poppins.className} relative z-10 mx-auto grid min-h-[calc(100svh-84px)] w-full place-items-center px-4 py-10 [--w:min(82vw,340px)] md:[--w:clamp(280px,min(31vw,calc((100svh_-_160px)*0.68)),480px)]`}
+        className={`${poppins.className} relative z-10 mx-auto grid min-h-[calc(100svh-84px)] w-full place-items-center px-4 py-10 [--w:min(78vw,320px)] md:[--w:clamp(260px,min(28.5vw,calc((100svh_-_180px)*0.643)),440px)]`}
       >
         <h1 className="sr-only">Kanza Iqbal — UI UX &amp; Product Designer</h1>
 
@@ -518,7 +518,7 @@ export default function Hero() {
               src={cardImg}
               alt="Kanza Iqbal — UI UX & Product Designer"
               priority
-              sizes="(min-width: 768px) 480px, 340px"
+              sizes="(min-width: 768px) 440px, 320px"
               className="h-auto w-full drop-shadow-[0_24px_40px_rgba(0,0,0,0.35)]"
             />
             <BorderGlow glowRef={glowRef} />
