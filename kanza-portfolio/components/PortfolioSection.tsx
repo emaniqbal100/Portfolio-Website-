@@ -14,8 +14,9 @@ import texture from "@/assets/ForegraoundBG.png";
 import orange from "@/assets/hoverbg.png";
 import RevealBackground from "./RevealBackground";
 
-export default function PortfolioSection() {
-  const sectionRef = useRef(null);
+export default function PortfolioSection({ panelRef }) {
+  const internalSectionRef = useRef(null);
+  const sectionRef = internalSectionRef;
   const prefersReducedMotion = useReducedMotion();
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -46,6 +47,7 @@ export default function PortfolioSection() {
       />
 
       <motion.div
+        ref={panelRef}
         className="relative z-10 w-full max-w-[740px] rounded-[24px] border border-white/25 bg-[#b9b6b2]/55 px-7 py-9 shadow-[inset_0_2px_12px_rgba(40,38,36,0.18),0_12px_32px_rgba(45,42,39,0.12)] backdrop-blur-[2px] sm:rounded-[26px] sm:px-[54px] sm:py-[54px]"
         style={
           prefersReducedMotion

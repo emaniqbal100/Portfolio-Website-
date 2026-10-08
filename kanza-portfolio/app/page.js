@@ -1,7 +1,6 @@
-import Hero from "@/components/Hero";
+import HeroPortfolio from "@/components/HeroPortfolio";
 import AboutSection from "@/components/About";
 import Sidebar from "@/components/Sidebar";
-import PortfolioSection from "@/components/PortfolioSection";
 import PortfolioProjectsSection from "@/components/PortfolioProjectsSection";
 import CareerSection from "@/components/CareerSection";
 import ExploreSection from "@/components/ExploreSection";
@@ -10,8 +9,7 @@ import ContactSection from "@/components/ContactSection";
 export default function Home() {
   return (
     <main>
-      <Hero />
-      <PortfolioSection />
+      <HeroPortfolio />
       <PortfolioProjectsSection />
       <CareerSection />
       <AboutSection />
